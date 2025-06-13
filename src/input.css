@@ -55,11 +55,15 @@ input::placeholder {
 /* Navigation Menu */
 
 .navbar-menu-list {
-  @apply flex flex-row justify-center text-white text-sm md:text-base font-bold gap-x-2 md:gap-x-4 pt-2  lg:text-sm;
+  @apply flex flex-row justify-center pt-3 text-white gap-x-2 md:gap-x-4;
 }
 
 .navbar-menu-item {
-  @apply rounded hover:bg-white hover:text-lightBlack leading-[1.8] cursor-pointer md:p-1 md:py-3 lg:p-3;
+  @apply rounded hover:bg-white hover:text-lightBlack leading-[1.8] cursor-pointer md:px-2 md:py-2 lg:p-2;
+}
+
+.navbar-menu-item a {
+  @apply text-base lg:text-base font-bold;
 }
 
 /* Bottom Nav */
@@ -80,16 +84,17 @@ input::placeholder {
 }
 
 .bottom-nav li a {
-  @apply flex flex-col justify-center gap-y-1;
+  @apply flex flex-col items-center gap-y-1;
 }
 
 .bottom-nav span {
-  @apply text-sm font-light;
+  @apply text-base text-lightBlack;
   white-space: nowrap;
 }
 
 .bottom-nav img {
-  @apply h-6 w-16;
+  /* @apply h-6 w-20; */
+  @apply w-32;
 }
 
 .bottom-nav.navbar-scroll {
