@@ -771,21 +771,26 @@ input::placeholder {
     }
   }
 }
-.movie-details a {
-  display: flex;
+.movie-card-watchlist {
+  display: inline-flex;
   width: 100%;
   align-items: center;
   border-radius: var(--radius-md);
   border-style: var(--tw-border-style);
-  border-width: 1px;
+  border-width: 2px;
+  border-color: var(--color-lightBlack);
   padding: calc(var(--spacing) * 2);
   padding-inline: calc(var(--spacing) * 3);
   text-align: center;
-  font-size: var(--text-base);
-  line-height: var(--tw-leading, var(--text-base--line-height));
+  font-size: var(--text-sm);
+  line-height: var(--tw-leading, var(--text-sm--line-height));
   --tw-tracking: var(--tracking-normal);
   letter-spacing: var(--tracking-normal);
   color: var(--color-lightBlack);
+  @media (width >= 40rem) {
+    font-size: var(--text-base);
+    line-height: var(--tw-leading, var(--text-base--line-height));
+  }
 }
 .movie-card-title {
   margin-top: calc(var(--spacing) * 3);
