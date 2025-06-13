@@ -84,7 +84,8 @@ input::placeholder {
 }
 
 .bottom-nav span {
-  @apply text-sm;
+  @apply text-sm font-light;
+  white-space: nowrap;
 }
 
 .bottom-nav img {
