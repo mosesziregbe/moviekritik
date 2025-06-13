@@ -1,0 +1,188 @@
+@import 'tailwindcss';
+
+@theme {
+  /* Color  */
+  --color-lightBlack: #2a2c32;
+  --color-lightGray: #ececec;
+  --color-darkBlue: #2d3751;
+  --color-lightRed: #fa320a;
+  --color-softRed: #e94560;
+  --color-darkGray: rgba(0, 0, 0, 0.4);
+
+  /* Font Family */
+  --font-sans: 'Open Sans', sans-serif;
+  --font-poppins: 'Poppins', sans-serif;
+  --font-montserrat: 'Montserrat', sans-serif;
+
+  /* Container */
+  --width-container: 1100px;
+}
+
+@layer base {
+  /* Your base layer styles go here */
+
+  /* For example: */
+
+  /* h1 {
+    @apply text-3xl font-bold;
+  }
+
+  a {
+    @apply text-blue-600 hover:underline text-3xl;
+  } */
+}
+
+@layer components {
+  /* .btn-blue {
+    @apply bg-amber-900 py-2 px-4 rounded-xl font-bold hover:bg-orange-500;
+  } */
+}
+
+/* .content-area {
+  @apply bg-green-200;
+} */
+
+/* Logo */
+
+.logo {
+  @apply h-6 w-24 md:pl-4 md:h-7 md:w-36;
+}
+
+input::placeholder {
+  @apply pr-4;
+}
+
+/* Navigation Menu */
+
+.navbar-menu-list {
+  @apply flex flex-row justify-center text-white text-sm md:text-base font-bold gap-x-2 md:gap-x-4 pt-2 md:text-xs lg:text-sm;
+}
+
+.navbar-menu-item {
+  @apply rounded hover:bg-white hover:text-lightBlack leading-[1.8] cursor-pointer md:p-1 md:py-3 lg:p-3;
+}
+
+/* Bottom Nav */
+
+.bottom-nav {
+  padding: 1rem 2rem 0.8rem;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: transparent;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.bottom-nav ul {
+  @apply flex items-center justify-around gap-x-6;
+}
+
+.bottom-nav li a {
+  @apply flex flex-col justify-center gap-y-1 text-center;
+}
+
+.bottom-nav span {
+  @apply text-sm font-normal;
+}
+
+.bottom-nav img {
+  @apply h-6 w-24;
+}
+
+.bottom-nav.navbar-scroll {
+  background: rgba(243, 243, 243, 0.92);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(200, 200, 200, 0.5);
+  border-top: 1px solid rgba(200, 200, 200, 0.2);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Movie Card */
+
+.movie-card img {
+  @apply relative w-full h-72 object-cover rounded-lg hover:opacity-75 shadow-md;
+}
+
+.movie-details a {
+  @apply flex items-center text-center rounded border rounded-md text-base p-2 tracking-normal px-3 w-full inline-block text-lightBlack;
+}
+
+.movie-card-title {
+  @apply text-base mt-3 mb-2.5 min-h-[3rem] text-lightBlack;
+}
+.movie-card-date {
+  @apply text-base text-lightBlack mb-2.5;
+}
+
+.ratings {
+  @apply absolute rounded top-2 right-2 text-white px-2 py-1 rounded text-sm font-semibold;
+}
+
+/* Popular List Section */
+
+.popular-list {
+  font-family: var(--font-poppins);
+}
+
+.popular-list h3 {
+  @apply capitalize font-semibold text-base;
+}
+
+.popular-list img {
+  @apply w-5 h-5;
+}
+
+.movies-list-items {
+  @apply pt-1 pb-1;
+}
+
+.movies-list-items li {
+  @apply flex justify-between items-center text-lightBlack pt-2 pb-2 border-b border-lightGray;
+}
+
+.movies-list-items a:nth-child(1) {
+  @apply font-light text-sm;
+}
+
+.movies-list-items a:nth-child(2) {
+  @apply font-semibold;
+}
+
+/* Footer */
+.footer {
+  font-family: var(--font-poppins);
+}
+
+.quick-links-container {
+  @apply text-center flex flex-col items-center gap-2 md:text-left md:flex-row md:items-start md:justify-start md:gap-8;
+}
+
+.quick-links ul {
+  @apply flex flex-row gap-x-1 md:flex-col;
+}
+
+.quick-links ul:nth-child(1) {
+  @apply lg:mr-10;
+}
+
+.quick-links li {
+  @apply text-xs sm:text-sm pt-0.5 pb-1.5;
+}
+
+/* Hamburger */
+
+/* When button has 'open' class */
+#menu-btn.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+#menu-btn.open span:nth-child(2) {
+  opacity: 0;
+}
+
+#menu-btn.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}

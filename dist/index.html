@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta
+      charset="UTF-8"
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Movie Kritik: Movies | Tv Shows | Ratings | Box Office</title>
+  </head>
+  <body
+    class="sm:bg-lightGray bg-white m-0 p-0 font-montserrat overflow-x-hidden"
+  >
+    <nav class="container mx-auto mb-0 py-2 px-2 bg-lightRed lg:w-container">
+      <!-- Flex Container for navigation items -->
+      <div class="flex items-center justify-between my-3">
+        <!-- Logo -->
+        <div>
+          <img class="logo" src="./images/mk_logo-wobg.png" alt="" />
+        </div>
+        <!-- Search Box -->
+        <!-- <div class="relative flex-1 mx-4 max-w-lg"> -->
+        <div class="relative flex-1 mx-2 lg:mx-4 max-w-none lg:max-w-lg">
+          <input
+            type="text"
+            placeholder="Search"
+            class="w-full flex-shrink-0 rounded-3xl text-white bg-darkGray p-2 pl-6 outline-black-50"
+          />
+
+          <i
+            class="fa-solid fa-magnifying-glass absolute right-2 top-1/2 transform -translate-y-1/2 text-white font-semibold text-lg cursor-pointer"
+          ></i>
+        </div>
+        <!-- Hamburger -->
+        <buttons
+          id="menu-btn"
+          class="md:hidden relative z-50 w-8 h-8 flex flex-col justify-center items-center gap-y-1 p-2 bg-white rounded-lg cursor-pointer transition-all duration-300"
+        >
+          <span
+            class="block h-1 w-4 bg-black transition-transform origin-center"
+          ></span>
+          <span class="block h-1 w-4 bg-black transition-opacity"></span>
+          <span
+            class="block h-1 w-4 bg-black transition-transform origin-center"
+          ></span>
+        </buttons>
+
+        <!-- Nav Menu Items -->
+        <div class="nav-menu hidden md:block">
+          <ul class="navbar-menu-list">
+            <li class="navbar-menu-item">
+              <a href="#" class="navbar-menu-link">Movies</a>
+            </li>
+            <li class="navbar-menu-item">
+              <a href="#" class="navbar-menu-link">TV Shows</a>
+            </li>
+            <li class="navbar-menu-item">
+              <a href="#" class="navbar-menu-link">Watchlist</a>
+            </li>
+            <li class="navbar-menu-item">
+              <a href="#" class="navbar-menu-link">More</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <main class="container mx-auto bg-white md:px-4 lg:w-container">
+      <!-- Movies in Theatres Section -->
+      <section class="theaters-movies p-4 md:p-2">
+        <!-- Flex container for Title and Link -->
+        <div class="flex justify-between items-end mt-10">
+          <h2
+            class="text-xl font-semibold leading-[1] tracking-normal text-lightBlack"
+          >
+            Movies in Theaters
+          </h2>
+          <a href="" class="uppercase text-blue-500 font-bold text-sm"
+            >View All</a
+          >
+        </div>
+        <p class="text-lightBlack pt-3 pb-3">
+          New releases and current favorites playing near you
+        </p>
+        <!-- Flex Container for Movies in Theaters -->
+        <div
+          class="grid grid-cols-2 items-center gap-8 md:grid-cols-3 lg:grid-cols-5"
+        >
+          <!-- Movie Cards -->
+          <!-- Movie Card 1 -->
+          <div class="movie-card">
+            <div class="relative">
+              <img src="./images/mk_poster.png" alt="" />
+              <span
+                class="ratings absolute rounded top-2 right-2 bg-green-500 text-white px-2 py-1 text-sm font-semibold"
+                >91%</span
+              >
+            </div>
+            <!-- Flex Container for Movie Details -->
+            <div class="movie-details">
+              <p class="movie-card-title">How to Train Your Dragon</p>
+              <p class="movie-card-date">Apr 2025 • Action</p>
+              <a href=""
+                ><i class="fa-solid fa-square-plus mr-2"></i
+                ><span>Add to Watchlist</span></a
+              >
+            </div>
+          </div>
+          <!-- Movie Card 2 -->
+          <div class="movie-card">
+            <div class="relative">
+              <img src="./images/mk_poster.png" alt="" />
+              <span class="ratings bg-green-500">91%</span>
+            </div>
+            <!-- Flex Container for Movie Details -->
+            <div class="movie-details">
+              <p class="movie-card-title">Ballerina</p>
+              <p class="movie-card-date">May 2025 • Fantasy</p>
+              <a href=""
+                ><i class="fa-solid fa-square-plus mr-2"></i
+                ><span>Add to Watchlist</span></a
+              >
+            </div>
+          </div>
+          <!-- Movie Card 2 -->
+          <div class="movie-card">
+            <div class="relative">
+              <img src="./images/mk_poster.png" alt="" />
+              <span
+                class="ratings absolute rounded top-2 right-2 bg-green-500 text-white px-2 py-1 text-sm font-semibold"
+                >91%</span
+              >
+            </div>
+            <!-- Flex Container for Movie Details -->
+            <div class="movie-details">
+              <p class="movie-card-title">Very Long Text that may overflow</p>
+              <p class="movie-card-date">May 2025 • Adventure</p>
+              <a href=""
+                ><i class="fa-solid fa-square-plus mr-2"></i
+                ><span>Add to Watchlist</span></a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Popular Movies Section -->
+      <section class="popular-movies p-4 pt-0 my-10 md:p-2">
+        <!-- Flex container for Title and Link -->
+        <div class="flex justify-between items-end">
+          <h2
+            class="text-xl font-semibold leading-[1] tracking-normal text-lightBlack"
+          >
+            Popular Movies
+          </h2>
+          <a href="" class="uppercase text-blue-500 font-bold text-sm"
+            >View All</a
+          >
+        </div>
+        <p class="text-lightBlack pt-3 pb-3">What's Hot Right Now</p>
+        <!-- Flex Container for Movies -->
+        <div
+          class="grid grid-cols-2 items-center gap-8 md:grid-cols-3 lg:grid-cols-5"
+        >
+          <!-- Movie Cards -->
+          <!-- Movie Card 1 -->
+          <div class="movie-card">
+            <div class="relative">
+              <img src="./images/mk_poster.png" alt="" />
+              <span
+                class="ratings absolute rounded top-2 right-2 bg-green-500 text-white px-2 py-1 text-sm font-semibold"
+                >91%</span
+              >
+            </div>
+            <!-- Flex Container for Movie Details -->
+            <div class="movie-details">
+              <p class="movie-card-title">How to Train Your Dragon</p>
+              <p class="movie-card-date">Apr 2025 • Action</p>
+              <a href=""
+                ><i class="fa-solid fa-square-plus mr-2"></i
+                ><span>Add to Watchlist</span></a
+              >
+            </div>
+          </div>
+          <!-- Movie Card 2 -->
+          <div class="movie-card">
+            <div class="relative">
+              <img src="./images/mk_poster.png" alt="" />
+              <span class="ratings bg-green-500">91%</span>
+            </div>
+            <!-- Flex Container for Movie Details -->
+            <div class="movie-details">
+              <p class="movie-card-title">Ballerina</p>
+              <p class="movie-card-date">May 2025 • Fantasy</p>
+              <a href=""
+                ><i class="fa-solid fa-square-plus mr-2"></i
+                ><span>Add to Watchlist</span></a
+              >
+            </div>
+          </div>
+          <!-- Movie Card 2 -->
+          <div class="movie-card">
+            <div class="relative">
+              <img src="./images/mk_poster.png" alt="" />
+              <span
+                class="ratings absolute rounded top-2 right-2 bg-green-500 text-white px-2 py-1 text-sm font-semibold"
+                >91%</span
+              >
+            </div>
+            <!-- Flex Container for Movie Details -->
+            <div class="movie-details">
+              <p class="movie-card-title">Very Long Text that may overflow</p>
+              <p class="movie-card-date">May 2025 • Adventure</p>
+              <a href=""
+                ><i class="fa-solid fa-square-plus mr-2"></i
+                ><span>Add to Watchlist</span></a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Popular Streaming Section -->
+      <section class="popular-movies p-4 pt-0 my-10 md:p-2">
+        <!-- Flex container for Title and Link -->
+        <div class="flex justify-between items-end">
+          <h2
+            class="text-xl font-semibold leading-[1] tracking-normal text-lightBlack"
+          >
+            Watch at Home
+          </h2>
+          <a href="" class="uppercase text-blue-500 font-bold text-sm"
+            >View All</a
+          >
+        </div>
+        <p class="text-lightBlack pt-3 pb-3">
+          Stream these on your favorite platforms and services
+        </p>
+        <!-- Flex Container for Movies -->
+        <div
+          class="grid grid-cols-2 items-center gap-8 md:grid-cols-3 lg:grid-cols-5"
+        >
+          <!-- Movie Cards -->
+          <!-- Movie Card 1 -->
+          <div class="movie-card">
+            <div class="relative">
+              <img src="./images/mk_poster.png" alt="" />
+              <span
+                class="ratings absolute rounded top-2 right-2 bg-green-500 text-white px-2 py-1 text-sm font-semibold"
+                >91%</span
+              >
+            </div>
+            <!-- Flex Container for Movie Details -->
+            <div class="movie-details">
+              <p class="movie-card-title">How to Train Your Dragon</p>
+              <p class="movie-card-date">Apr 2025 • Action</p>
+              <a href=""
+                ><i class="fa-solid fa-square-plus mr-2"></i
+                ><span>Add to Watchlist</span></a
+              >
+            </div>
+          </div>
+          <!-- Movie Card 2 -->
+          <div class="movie-card">
+            <div class="relative">
+              <img src="./images/mk_poster.png" alt="" />
+              <span class="ratings bg-green-500">91%</span>
+            </div>
+            <!-- Flex Container for Movie Details -->
+            <div class="movie-details">
+              <p class="movie-card-title">Ballerina</p>
+              <p class="movie-card-date">May 2025 • Fantasy</p>
+              <a href=""
+                ><i class="fa-solid fa-square-plus mr-2"></i
+                ><span>Add to Watchlist</span></a
+              >
+            </div>
+          </div>
+          <!-- Movie Card 2 -->
+          <div class="movie-card">
+            <div class="relative">
+              <img src="./images/mk_poster.png" alt="" />
+              <span
+                class="ratings absolute rounded top-2 right-2 bg-green-500 text-white px-2 py-1 text-sm font-semibold"
+                >91%</span
+              >
+            </div>
+            <!-- Flex Container for Movie Details -->
+            <div class="movie-details">
+              <p class="movie-card-title">Very Long Text that may overflow</p>
+              <p class="movie-card-date">May 2025 • Adventure</p>
+              <a href=""
+                ><i class="fa-solid fa-square-plus mr-2"></i
+                ><span>Add to Watchlist</span></a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Popular List Section -->
+      <section class="popular-list pb-10">
+        <!-- Flex Container for 3 panels -->
+        <div
+          class="grid grid-cols-1 items-center gap-x-8 md:grid-cols-2 lg:grid-cols-3"
+        >
+          <!-- Popular Streaming Movies 1-->
+          <div class="popular-streaming pl-5 pb-14 pr-5 md:pr-0">
+            <div class="flex justify-between items-center">
+              <div class="flex justify-center items-center gap-x-2">
+                <h3>Popular Streaming Movies</h3>
+                <img src="./images/icons8-streaming-32.png" alt="" />
+              </div>
+              <a href="">View All</a>
+            </div>
+            <!-- Movies List  -->
+            <ul class="movies-list-items">
+              <li>
+                <!-- Movie Name  -->
+                <a href="">STRAW</a>
+                <!-- Movie Ratings -->
+                <a href="">80%</a>
+              </li>
+              <li>
+                <!-- Movie Name  -->
+                <a href="">Sinners</a>
+                <!-- Movie Ratings -->
+                <a href="">80%</a>
+              </li>
+              <li>
+                <!-- Movie Name  -->
+                <a href="">How to Train a Dragon</a>
+                <!-- Movie Ratings -->
+                <a href="">80%</a>
+              </li>
+              <li>
+                <!-- Movie Name  -->
+                <a href="">Very Long text That may overflow</a>
+                <!-- Movie Ratings -->
+                <a href="">80%</a>
+              </li>
+              <li>
+                <!-- Movie Name  -->
+                <a href="">STRAW</a>
+                <!-- Movie Ratings -->
+                <a href="">80%</a>
+              </li>
+              <li>
+                <!-- Movie Name  -->
+                <a href="">STRAW</a>
+                <!-- Movie Ratings -->
+                <a href="">80%</a>
+              </li>
+              <li>
+                <!-- Movie Name  -->
+                <a href="">STRAW</a>
+                <!-- Movie Ratings -->
+                <a href="">80%</a>
+              </li>
+              <li>
+                <!-- Movie Name  -->
+                <a href="">STRAW</a>
+                <!-- Movie Ratings -->
+                <div class="">
+                  <i class="fa-solid fa-star text-orange-200 mr-2"></i
+                  ><a href="">35%</a>
+                </div>
+              </li>
+              <li>
+                <!-- Movie Name  -->
+                <a href="">STRAW</a>
+                <!-- Movie Ratings -->
+                <div class="">
+                  <i class="fa-solid fa-star text-gray-200 mr-2"></i
+                  ><a href="">35%</a>
+                </div>
+              </li>
+              <li>
+                <!-- Movie Name  -->
+                <a href="">Ballerina</a>
+                <!-- Movie Ratings -->
+                <div class="">
+                  <i class="fa-solid fa-star text-yellow-300 mr-2"></i
+                  ><a href="">80%</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Popular Tv Shows 2-->
+          <div
+            class="popular-tv pl-5 pb-14 border-l border-lightGray pr-5 md:pr-0"
+          >
+            <div class="flex justify-between items-center">
+              <div class="flex justify-center items-center gap-x-2">
+                <h3>Popular TV Shows</h3>
+                <img src="./images/icons8-tv-48.png" alt="" />
+              </div>
+              <a href="">View All</a>
+            </div>
+            <!-- Movies List  -->
+            <ul class="movies-list-items">
+              <li>
+                <!-- Movie Name  -->
+                <a href="">STRAW</a>
+                <!-- Movie Ratings -->
+                <a href="">80%</a>
+              </li>
+              <li>
+                <!-- Movie Name  -->
+                <a href="">Sinners</a>
+                <!-- Movie Ratings -->
+                <a href="">80%</a>
+              </li>
+              <li>
+                <!-- Movie Name  -->
+                <a href="">How to Train a Dragon</a>
+                <!-- Movie Ratings -->
+                <a href="">80%</a>
+              </li>
+              <li>
+                <!-- Movie Name  -->
+                <a href="">Very Long text That may overflow</a>
+                <!-- Movie Ratings -->
+                <a href="">80%</a>
+              </li>
+              <li>
+                <!-- Movie Name  -->
+                <a href="">STRAW</a>
+                <!-- Movie Ratings -->
+                <a href="">80%</a>
+              </li>
+              <li>
+                <!-- Movie Name  -->
+                <a href="">STRAW</a>
+                <!-- Movie Ratings -->
+                <a href="">80%</a>
+              </li>
+              <li>
+                <!-- Movie Name  -->
+                <a href="">STRAW</a>
+                <!-- Movie Ratings -->
+                <a href="">80%</a>
+              </li>
+              <li>
+                <!-- Movie Name  -->
+                <a href="">STRAW</a>
+                <!-- Movie Ratings -->
+                <a href="">80%</a>
+              </li>
+              <li>
+                <!-- Movie Name  -->
+                <a href="">STRAW</a>
+                <!-- Movie Ratings -->
+                <a href="">80%</a>
+              </li>
+              <li>
+                <!-- Movie Name  -->
+                <a href="">STRAW</a>
+                <!-- Movie Ratings -->
+                <a href="">80%</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Top 10 Box Office 3-->
+          <div
+            class="box-office pl-5 pb-14 border-l border-lightGray pr-5 md:pr-0"
+          >
+            <div class="flex justify-between items-center">
+              <div class="flex justify-center items-center">
+                <h3>Top 10 Box Office</h3>
+                <img
+                  class="popular-list-icons"
+                  src="images/icons8-popcorn-48.png"
+                  alt=""
+                />
+              </div>
+              <a href="">View All</a>
+            </div>
+            <!-- Movies List  -->
+            <ul class="movies-list-items">
+              <li>
+                <!-- Movie Name  -->
+                <a href="">STRAW</a>
+                <!-- Movie Ratings -->
+                <a href="">80%</a>
+              </li>
+              <li>
+                <!-- Movie Name  -->
+                <a href="">Sinners</a>
+                <!-- Movie Ratings -->
+                <a href="">80%</a>
+              </li>
+              <li>
+                <!-- Movie Name  -->
+                <a href="">How to Train a Dragon</a>
+                <!-- Movie Ratings -->
+                <a href="">80%</a>
+              </li>
+              <li>
+                <!-- Movie Name  -->
+                <a href="">Very Long text That may overflow</a>
+                <!-- Movie Ratings -->
+                <a href="">80%</a>
+              </li>
+              <li>
+                <!-- Movie Name  -->
+                <a href="">STRAW</a>
+                <!-- Movie Ratings -->
+                <a href="">80%</a>
+              </li>
+              <li>
+                <!-- Movie Name  -->
+                <a href="">STRAW</a>
+                <!-- Movie Ratings -->
+                <a href="">80%</a>
+              </li>
+              <li>
+                <!-- Movie Name  -->
+                <a href="">STRAW</a>
+                <!-- Movie Ratings -->
+                <a href="">80%</a>
+              </li>
+              <li>
+                <!-- Movie Name  -->
+                <a href="">STRAW</a>
+                <!-- Movie Ratings -->
+                <a href="">80%</a>
+              </li>
+              <li>
+                <!-- Movie Name  -->
+                <a href="">STRAW</a>
+                <!-- Movie Ratings -->
+                <a href="">80%</a>
+              </li>
+              <li>
+                <!-- Movie Name  -->
+                <a href="">STRAW</a>
+                <!-- Movie Ratings -->
+                <a href="">80%</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Bottom Nav Bar  -->
+      <nav class="container mx-auto bottom-nav navbar-scroll lg:hidden">
+        <div>
+          <ul>
+            <li>
+              <a href=""
+                ><img src="./images/mk_logo2.png" alt="" /><span
+                  >MoviesKritik</span
+                ></a
+              >
+            </li>
+            <li>
+              <a href=""
+                ><i class="fa-solid fa-film text-xl text-lightBlack"></i
+                ><span>Movies</span></a
+              >
+            </li>
+            <li>
+              <a href=""
+                ><i class="fa-solid fa-tv text-xl text-lightBlack"></i
+                ><span>TV Shows</span></a
+              >
+            </li>
+            <li>
+              <a href=""
+                ><i
+                  class="fa-regular fa-circle-user text-xl text-lightBlack"
+                ></i
+                ><span>My Watchlist</span></a
+              >
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </main>
+    <!-- Footer -->
+    <footer
+      class="footer container bg-lightBlack mx-auto text-white lg:w-container"
+    >
+      <!-- Flex Container for Footer Items -->
+      <div
+        class="flex items-center justify-center flex-col-reverse gap-y-3 md:items-start md:justify-between md:flex-row pt-6 px-4 pb-3 md:pb-6"
+      >
+        <div class="quick-links-container">
+          <!-- Quick Links 1 -->
+          <div class="quick-links">
+            <ul>
+              <li><a href="">About MovieKritic</a></li>
+              <li><a href="">How We Rate</a></li>
+            </ul>
+          </div>
+          <!-- Quick Links 2 -->
+          <div class="quick-links">
+            <ul>
+              <li><a href="">Privacy Policy</a></li>
+              <li><a href="">Terms of Service</a></li>
+              <li><a href="">Contact Us</a></li>
+              <li><a href="">Advertise With Us</a></li>
+            </ul>
+          </div>
+        </div>
+        <!-- Email Newsletter -->
+        <div
+          class="newsletter text-center flex flex-col justify-between w-64 gap-y-1.5"
+        >
+          <h4 class="text-base font-normal">Stay Connected</h4>
+          <h5 class="font-semibold text-lg uppercase">
+            <i class="fa-solid fa-envelope"></i>
+            Join the MovieKritic Community
+          </h5>
+          <p class="pb-2">
+            Get weekly recommendations and never miss what's trending!
+          </p>
+          <div class="pb-1.5">
+            <a
+              href=""
+              class="uppercase rounded-2xl bg-blue-500 text-white text-sm font-semibold p-1 px-3 hover:opacity-90"
+              >Join the newsletter</a
+            >
+          </div>
+        </div>
+        <!-- Socials -->
+        <div class="socials">
+          <h4
+            class="uppercase font-semibold text-lg pb-2 text-center md:text-start"
+          >
+            Follow Us
+          </h4>
+          <div class="flex justify-center items-center gap-x-4">
+            <a href=""><i class="fa-brands fa-facebook text-xl"></i></a>
+            <a href=""><i class="fa-brands fa-square-x-twitter text-xl"></i></a>
+            <a href=""><i class="fa-brands fa-youtube text-xl"></i></a>
+            <a href=""><i class="fa-brands fa-instagram text-xl"></i></a>
+            <a href=""><i class="fa-brands fa-tiktok text-xl"></i></a>
+          </div>
+        </div>
+      </div>
+      <p class="text-center text-xs text-gray-400 pt-4 pb-2 px-6">
+        © 2025 MovieKritic. All rights reserved. Movie data provided by The
+        Movie Database (TMDB)
+      </p>
+    </footer>
+  </body>
+</html>
