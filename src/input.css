@@ -51,8 +51,10 @@
   @apply h-6 w-24 md:pl-4 md:h-7 md:w-36;
 }
 
-input::placeholder {
-  @apply pr-4;
+.fa-magnifying-glass {
+  vertical-align: middle;
+  line-height: 1;
+  display: inline-flex;
 }
 
 /* Navigation Menu */
@@ -62,7 +64,7 @@ input::placeholder {
 }
 
 .navbar-menu-item {
-  @apply rounded hover:bg-white hover:text-lightBlack leading-[1.8] cursor-pointer md:px-2 md:py-2 lg:p-2;
+  @apply rounded hover:bg-white hover:text-lightBlack leading-[1.8] cursor-pointer md:px-2 md:py-2 lg:p-2 transition-colors duration-300 ease-in-out;
 }
 
 .navbar-menu-item a {
@@ -72,7 +74,7 @@ input::placeholder {
 /* Movie Card */
 
 .movie-card img {
-  @apply relative w-full h-72 object-cover rounded-lg hover:opacity-75 shadow-md;
+  @apply relative w-full h-72 object-cover rounded-lg hover:opacity-75 shadow-md transition-opacity duration-300 ease-in-out cursor-pointer;
 }
 
 .movie-card {
@@ -91,7 +93,7 @@ input::placeholder {
 }
 
 .movie-card-watchlist {
-  @apply block w-full mt-auto text-[0.8rem] text-center border border-blue-200 rounded p-2 sm:text-sm sm:p-3 hover:opacity-70 cursor-pointer;
+  @apply block w-full mt-auto text-[0.8rem] text-center border border-blue-200 rounded p-2 sm:text-sm sm:p-3 hover:opacity-60 cursor-pointer transition-opacity duration-300 ease-in-out;
 }
 
 .ratings {
@@ -131,7 +133,7 @@ input::placeholder {
 /* Bottom Nav */
 
 .bottom-nav {
-  padding: 0.6rem 1rem 0.8rem;
+  padding: 0.6rem 1.5rem 0.8rem;
   position: fixed;
   bottom: 0;
   left: 0;
@@ -150,7 +152,7 @@ input::placeholder {
 }
 
 .bottom-nav span {
-  @apply text-[0.6rem] text-lightBlack tracking-wider;
+  @apply text-[0.6rem] text-lightBlack tracking-wider group-hover:text-red-400;
   white-space: nowrap;
 }
 

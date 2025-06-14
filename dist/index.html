@@ -41,7 +41,7 @@
         <div>
           <!-- <img class="logo" src="./images/mk_logo-wobg.png" alt="" /> -->
           <p
-            class="text-white font-bold text-lg font-rampart sm:text-xl md:text-2xl"
+            class="text-white font-bold text-lg font-rampart sm:text-xl md:text-2xl cursor-pointer"
           >
             moviekritic
           </p>
@@ -49,12 +49,12 @@
         <!-- Search Box -->
         <div class="relative flex-1 mx-2 lg:mx-4 max-w-none lg:max-w-lg">
           <i
-            class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 transform -translate-y-1/2 text-white text-lg pointer-events-none"
+            class="fa-solid fa-magnifying-glass cursor-pointer absolute left-3 top-1/2 transform -translate-y-1/2 text-white text-lg hover:text-darkBlue transition-colors duration-300 ease-in-out"
           ></i>
           <input
             type="text"
             placeholder="Search"
-            class="w-full rounded-3xl text-white bg-darkGray p-2 pl-12 outline-black-50"
+            class="w-full rounded-3xl text-white bg-darkGray p-2 pl-10 outline-black-50"
           />
         </div>
 
@@ -105,7 +105,7 @@
             >View All</a
           >
         </div>
-        <p class="text-lightBlack pt-3 pb-3">
+        <p class="text-lightBlack pt-1 pb-5">
           New releases and current favorites playing near you
         </p>
         <!-- Flex Container for Movies in Theaters -->
@@ -182,7 +182,7 @@
             >View All</a
           >
         </div>
-        <p class="text-lightBlack pt-3 pb-3">What's Hot Right Now</p>
+        <p class="text-lightBlack pt-1 pb-5">What's Hot Right Now</p>
         <!-- Flex Container for Movies -->
         <div
           class="grid grid-cols-2 items-center gap-8 md:grid-cols-3 lg:grid-cols-5"
@@ -257,7 +257,7 @@
             >View All</a
           >
         </div>
-        <p class="text-lightBlack pt-3 pb-3">
+        <p class="text-lightBlack pt-1 pb-5">
           Stream these on your favorite platforms and services
         </p>
         <!-- Flex Container for Movies -->
@@ -335,7 +335,7 @@
                 <h3>Popular Streaming Movies</h3>
                 <img src="./images/icons8-streaming-32.png" alt="" />
               </div>
-              <a href="">View All</a>
+              <a class="uppercase text-blue-500 text-sm" href="">View All</a>
             </div>
             <!-- Movies List  -->
             <ul class="movies-list-items">
@@ -420,7 +420,7 @@
                 <h3>Popular TV Shows</h3>
                 <img src="./images/icons8-tv-48.png" alt="" />
               </div>
-              <a href="">View All</a>
+              <a class="uppercase text-blue-500 text-sm" href="">View All</a>
             </div>
             <!-- Movies List  -->
             <ul class="movies-list-items">
@@ -500,7 +500,7 @@
                   alt=""
                 />
               </div>
-              <a href="">View All</a>
+              <a class="uppercase text-blue-500 text-sm" href="">View All</a>
             </div>
             <!-- Movies List  -->
             <ul class="movies-list-items">
@@ -574,27 +574,41 @@
         <div>
           <ul>
             <li>
-              <a href=""
-                ><i class="fa-solid fa-ticket text-xl text-lightBlack"></i
+              <a
+                class="group transition-colors duration-300 ease-in-out"
+                href=""
+                ><i
+                  class="fa-solid fa-ticket text-xl text-lightBlack group-hover:text-red-400"
+                ></i
                 ><span>Home</span></a
               >
             </li>
             <li>
-              <a href=""
-                ><i class="fa-solid fa-film text-xl text-lightBlack"></i
+              <a
+                class="group transition-colors duration-300 ease-in-out"
+                href=""
+                ><i
+                  class="fa-solid fa-film text-xl text-lightBlack group-hover:text-red-400"
+                ></i
                 ><span>Movies</span></a
               >
             </li>
             <li>
-              <a href=""
-                ><i class="fa-solid fa-tv text-xl text-lightBlack"></i
+              <a
+                class="group transition-colors duration-300 ease-in-out"
+                href=""
+                ><i
+                  class="fa-solid fa-tv text-xl text-lightBlack group-hover:text-red-400"
+                ></i
                 ><span>TV Shows</span></a
               >
             </li>
             <li>
-              <a href=""
+              <a
+                class="group transition-colors duration-300 ease-in-out"
+                href=""
                 ><i
-                  class="fa-regular fa-circle-user text-xl text-lightBlack"
+                  class="fa-regular fa-circle-user text-xl text-lightBlack group-hover:text-red-400"
                 ></i
                 ><span>My Watchlist</span></a
               >
@@ -644,7 +658,7 @@
           <div class="pb-1.5">
             <a
               href=""
-              class="uppercase rounded-2xl bg-blue-500 text-white text-sm font-semibold p-1 px-3 hover:opacity-90"
+              class="uppercase rounded-2xl bg-blue-500 text-white text-sm font-semibold p-1 px-3 hover:opacity-90 transition-opacity duration-300 ease-in-out"
               >Join the newsletter</a
             >
           </div>
