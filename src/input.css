@@ -13,6 +13,9 @@
   --font-sans: 'Open Sans', sans-serif;
   --font-poppins: 'Poppins', sans-serif;
   --font-montserrat: 'Montserrat', sans-serif;
+  --font-passion: 'Passion One', sans-serif;
+  --font-caprasimo: 'Caprasimo', serif;
+  --font-rampart: 'Rampart One', sans-serif;
 
   /* Container */
   --width-container: 1100px;
@@ -66,61 +69,29 @@ input::placeholder {
   @apply text-base lg:text-base font-bold;
 }
 
-/* Bottom Nav */
-
-.bottom-nav {
-  padding: 1rem 1rem 0.8rem;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-  background-color: transparent;
-  transition: background-color 0.3s ease-in-out;
-}
-
-.bottom-nav ul {
-  @apply flex items-center justify-between gap-x-4;
-}
-
-.bottom-nav li a {
-  @apply flex flex-col items-center gap-y-1;
-}
-
-.bottom-nav span {
-  @apply text-base text-lightBlack;
-  white-space: nowrap;
-}
-
-.bottom-nav img {
-  /* @apply h-6 w-20; */
-  @apply w-32;
-}
-
-.bottom-nav.navbar-scroll {
-  background: rgba(243, 243, 243, 0.92);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  border-bottom: 1px solid rgba(200, 200, 200, 0.5);
-  border-top: 1px solid rgba(200, 200, 200, 0.2);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-}
-
 /* Movie Card */
 
 .movie-card img {
   @apply relative w-full h-72 object-cover rounded-lg hover:opacity-75 shadow-md;
 }
 
-.movie-card-watchlist {
-  @apply inline-flex items-center text-center border-2 border-lightBlack rounded-md text-sm sm:text-base p-2 tracking-normal px-3 w-full text-lightBlack;
+.movie-card {
+  @apply flex flex-col h-[430px];
+}
+
+.movie-details {
+  @apply flex flex-col flex-1;
 }
 
 .movie-card-title {
-  @apply text-base mt-3 mb-2.5 min-h-[3rem] text-lightBlack;
+  @apply text-sm mt-3 min-h-[3rem] text-lightBlack overflow-hidden;
 }
 .movie-card-date {
-  @apply text-base text-lightBlack mb-2.5;
+  @apply text-sm text-lightBlack min-h-[1.5rem];
+}
+
+.movie-card-watchlist {
+  @apply block w-full mt-auto text-[0.8rem] text-center border border-blue-200 rounded p-2 sm:text-sm sm:p-3 hover:opacity-70 cursor-pointer;
 }
 
 .ratings {
@@ -155,6 +126,46 @@ input::placeholder {
 
 .movies-list-items a:nth-child(2) {
   @apply font-semibold;
+}
+
+/* Bottom Nav */
+
+.bottom-nav {
+  padding: 0.6rem 1rem 0.8rem;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: transparent;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.bottom-nav ul {
+  @apply flex items-start justify-between gap-x-4;
+}
+
+.bottom-nav li a {
+  @apply flex flex-col items-center justify-start gap-y-1;
+}
+
+.bottom-nav span {
+  @apply text-[0.6rem] text-lightBlack tracking-wider;
+  white-space: nowrap;
+}
+
+.bottom-nav img {
+  width: 20px;
+  height: 20px;
+}
+
+.bottom-nav.navbar-scroll {
+  background: rgba(243, 243, 243, 0.92);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(200, 200, 200, 0.5);
+  border-top: 1px solid rgba(200, 200, 200, 0.2);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
 /* Footer */

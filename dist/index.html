@@ -18,6 +18,10 @@
       rel="stylesheet"
     />
     <link
+      href="https://fonts.googleapis.com/css2?family=Caprasimo&family=Passion+One:wght@400;700;900&family=Rampart+One&display=swap"
+      rel="stylesheet"
+    />
+    <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
       integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
@@ -25,32 +29,35 @@
       referrerpolicy="no-referrer"
     />
     <link rel="stylesheet" href="./style.css" />
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <title>Movie Kritik: Movies | Tv Shows | Ratings | Box Office</title>
   </head>
   <body
     class="sm:bg-lightGray bg-white m-0 p-0 font-montserrat overflow-x-hidden"
   >
-    <nav class="container mx-auto mb-0 py-2 px-2 bg-lightRed lg:w-container">
+    <nav class="container mx-auto mb-0 py-2 px-4 bg-lightRed lg:w-container">
       <!-- Flex Container for navigation items -->
       <div class="flex items-center justify-between my-3 gap-x-4">
         <!-- Logo -->
         <div>
-          <img class="logo" src="./images/mk_logo-wobg.png" alt="" />
+          <!-- <img class="logo" src="./images/mk_logo-wobg.png" alt="" /> -->
+          <p
+            class="text-white font-bold text-lg font-rampart sm:text-xl md:text-2xl"
+          >
+            moviekritic
+          </p>
         </div>
         <!-- Search Box -->
-        <!-- <div class="relative flex-1 mx-4 max-w-lg"> -->
         <div class="relative flex-1 mx-2 lg:mx-4 max-w-none lg:max-w-lg">
+          <i
+            class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 transform -translate-y-1/2 text-white text-lg pointer-events-none"
+          ></i>
           <input
             type="text"
             placeholder="Search"
-            class="w-full flex-shrink-0 rounded-3xl text-white bg-darkGray p-2 pl-6 outline-black-50"
+            class="w-full rounded-3xl text-white bg-darkGray p-2 pl-12 outline-black-50"
           />
-
-          <i
-            class="fa-solid fa-magnifying-glass absolute right-2 top-1/2 transform -translate-y-1/2 text-white font-semibold text-lg cursor-pointer"
-          ></i>
         </div>
+
         <!-- Hamburger -->
         <buttons
           id="menu-btn"
@@ -88,9 +95,9 @@
       <!-- Movies in Theatres Section -->
       <section class="theaters-movies p-4 md:p-2">
         <!-- Flex container for Title and Link -->
-        <div class="flex justify-between items-end mt-10">
+        <div class="flex justify-between items-center mt-8">
           <h2
-            class="text-xl font-semibold leading-[1] tracking-normal text-lightBlack"
+            class="text-2xl font-semibold leading-[1.6] tracking-normal text-lightBlack font-passion"
           >
             Movies in Theaters
           </h2>
@@ -165,9 +172,9 @@
       <!-- Popular Movies Section -->
       <section class="popular-movies p-4 pt-0 my-10 md:p-2">
         <!-- Flex container for Title and Link -->
-        <div class="flex justify-between items-end">
+        <div class="flex justify-between items-center">
           <h2
-            class="text-xl font-semibold leading-[1] tracking-normal text-lightBlack"
+            class="text-2xl font-semibold leading-[1.6] tracking-normal text-lightBlack font-passion"
           >
             Popular Movies
           </h2>
@@ -194,10 +201,10 @@
             <div class="movie-details">
               <p class="movie-card-title">How to Train Your Dragon</p>
               <p class="movie-card-date">Apr 2025 • Action</p>
-              <a class="movie-card-watchlist" href=""
-                ><i class="fa-solid fa-square-plus mr-2"></i
-                ><span>Add to Watchlist</span></a
-              >
+              <button class="movie-card-watchlist" href="">
+                <i class="fa-solid fa-square-plus mr-2"></i
+                ><span>Add to Watchlist</span>
+              </button>
             </div>
           </div>
           <!-- Movie Card 2 -->
@@ -210,10 +217,10 @@
             <div class="movie-details">
               <p class="movie-card-title">Ballerina</p>
               <p class="movie-card-date">May 2025 • Fantasy</p>
-              <a class="movie-card-watchlist" href=""
-                ><i class="fa-solid fa-square-plus mr-2"></i
-                ><span>Add to Watchlist</span></a
-              >
+              <button class="movie-card-watchlist" href="">
+                <i class="fa-solid fa-square-plus mr-2"></i
+                ><span>Add to Watchlist</span>
+              </button>
             </div>
           </div>
           <!-- Movie Card 2 -->
@@ -229,10 +236,10 @@
             <div class="movie-details">
               <p class="movie-card-title">Very Long Text that may overflow</p>
               <p class="movie-card-date">May 2025 • Adventure</p>
-              <a class="movie-card-watchlist" href=""
-                ><i class="fa-solid fa-square-plus mr-2"></i
-                ><span>Add to Watchlist</span></a
-              >
+              <button class="movie-card-watchlist" href="">
+                <i class="fa-solid fa-square-plus mr-2"></i
+                ><span>Add to Watchlist</span>
+              </button>
             </div>
           </div>
         </div>
@@ -240,9 +247,9 @@
       <!-- Popular Streaming Section -->
       <section class="popular-movies p-4 pt-0 my-10 md:p-2">
         <!-- Flex container for Title and Link -->
-        <div class="flex justify-between items-end">
+        <div class="flex justify-between items-center">
           <h2
-            class="text-xl font-semibold leading-[1] tracking-normal text-lightBlack"
+            class="text-2xl font-semibold leading-[1.6] tracking-normal text-lightBlack font-passion"
           >
             Watch at Home
           </h2>
@@ -269,7 +276,7 @@
             </div>
             <!-- Flex Container for Movie Details -->
             <div class="movie-details">
-              <p class="movie-card-title">How to Train Your Dragon</p>
+              <p class="movie-card-title">Predator: Killer of Killers</p>
               <p class="movie-card-date">Apr 2025 • Action</p>
               <a class="movie-card-watchlist" href=""
                 ><i class="fa-solid fa-square-plus mr-2"></i
@@ -568,7 +575,8 @@
           <ul>
             <li>
               <a href=""
-                ><img src="./images/mk_logo2.png" alt="" /><span>Home</span></a
+                ><i class="fa-solid fa-ticket text-xl text-lightBlack"></i
+                ><span>Home</span></a
               >
             </li>
             <li>
@@ -580,7 +588,7 @@
             <li>
               <a href=""
                 ><i class="fa-solid fa-tv text-xl text-lightBlack"></i
-                ><span>TV</span></a
+                ><span>TV Shows</span></a
               >
             </li>
             <li>
@@ -588,7 +596,7 @@
                 ><i
                   class="fa-regular fa-circle-user text-xl text-lightBlack"
                 ></i
-                ><span>Watchlist</span></a
+                ><span>My Watchlist</span></a
               >
             </li>
           </ul>
@@ -601,7 +609,7 @@
     >
       <!-- Flex Container for Footer Items -->
       <div
-        class="flex items-center justify-center flex-col-reverse gap-y-3 md:items-start md:justify-between md:flex-row pt-6 px-4 pb-3 md:pb-6"
+        class="flex items-center justify-center flex-col-reverse gap-y-5 md:items-start md:justify-between md:flex-row pt-6 px-4 pb-3 md:pb-6"
       >
         <div class="quick-links-container">
           <!-- Quick Links 1 -->
