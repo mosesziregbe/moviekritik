@@ -78,7 +78,7 @@
 }
 
 .movie-card {
-  @apply flex flex-col h-[430px];
+  @apply flex flex-col h-[435px];
 }
 
 .movie-details {
@@ -86,7 +86,7 @@
 }
 
 .movie-card-title {
-  @apply text-sm mt-3 min-h-[3rem] text-lightBlack overflow-hidden;
+  @apply text-sm mt-3 min-h-[3rem] text-lightBlack overflow-hidden hover:text-blue-400 cursor-pointer;
 }
 .movie-card-date {
   @apply text-sm text-lightBlack min-h-[1.5rem];
@@ -94,6 +94,42 @@
 
 .movie-card-watchlist {
   @apply block w-full mt-auto text-[0.8rem] text-center border border-blue-200 rounded p-2 sm:text-sm sm:p-3 hover:opacity-60 cursor-pointer transition-opacity duration-300 ease-in-out;
+}
+
+.movie-card-watchlist i {
+  @apply mr-2;
+}
+
+/* Movie Card Button Default state */
+.movie-card-watchlist .fa-square-plus {
+  display: inline;
+}
+
+.movie-card-watchlist .fa-check {
+  display: none;
+}
+
+.movie-card-watchlist .not-watchlisted {
+  display: inline;
+}
+
+.movie-card-watchlist .in-watchlist {
+  display: none;
+}
+
+/* Active State -- In Watchlist */
+
+.movie-card-watchlist.active .fa-square-plus {
+  display: none;
+}
+.movie-card-watchlist.active .fa-check {
+  display: inline;
+}
+.movie-card-watchlist.active .not-watchlisted {
+  display: none;
+}
+.movie-card-watchlist.active .in-watchlist {
+  display: inline;
 }
 
 .ratings {
@@ -177,7 +213,7 @@
 }
 
 .quick-links-container {
-  @apply text-center flex flex-col items-center gap-2 md:text-left md:flex-row md:items-start md:justify-start md:gap-8;
+  @apply text-center flex flex-col flex-wrap items-center gap-2 md:text-left md:flex-row md:items-start md:justify-start md:gap-8;
 }
 
 .quick-links ul {

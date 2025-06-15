@@ -29,6 +29,7 @@
       referrerpolicy="no-referrer"
     />
     <link rel="stylesheet" href="./style.css" />
+    <script src="./js/script.js" defer></script>
     <title>Movie Kritik: Movies | Tv Shows | Ratings | Box Office</title>
   </head>
   <body
@@ -92,81 +93,28 @@
       </div>
     </nav>
     <main class="container mx-auto bg-white md:px-4 lg:w-container">
-      <!-- Movies in Theatres Section -->
-      <section class="theaters-movies p-4 md:p-2">
+      <!-- Trending Movies/Shows Section -->
+      <section class="trending-movies-shows p-4 md:p-2">
         <!-- Flex container for Title and Link -->
         <div class="flex justify-between items-center mt-8">
           <h2
             class="text-2xl font-semibold leading-[1.6] tracking-normal text-lightBlack font-passion"
           >
-            Movies in Theaters
+            Trending Today
           </h2>
           <a href="" class="uppercase text-blue-500 font-bold text-sm"
             >View All</a
           >
         </div>
         <p class="text-lightBlack pt-1 pb-5">
-          New releases and current favorites playing near you
+          Trending movies and series right now
         </p>
-        <!-- Flex Container for Movies in Theaters -->
+        <!-- Flex Container for Trending Movies and Shows -->
         <div
-          class="grid grid-cols-2 items-center gap-8 md:grid-cols-3 lg:grid-cols-5"
+          id="trending-today"
+          class="grid grid-cols-2 items-center gap-y-10 gap-x-8 md:grid-cols-3 lg:grid-cols-5"
         >
           <!-- Movie Cards -->
-          <!-- Movie Card 1 -->
-          <div class="movie-card">
-            <div class="relative">
-              <img src="./images/mk_poster.png" alt="" />
-              <span
-                class="ratings absolute rounded top-2 right-2 bg-green-500 text-white px-2 py-1 text-sm font-semibold"
-                >91%</span
-              >
-            </div>
-            <!-- Flex Container for Movie Details -->
-            <div class="movie-details">
-              <p class="movie-card-title">How to Train Your Dragon</p>
-              <p class="movie-card-date">Apr 2025 • Action</p>
-              <a class="movie-card-watchlist" href=""
-                ><i class="fa-solid fa-square-plus mr-2"></i
-                ><span>Add to Watchlist</span></a
-              >
-            </div>
-          </div>
-          <!-- Movie Card 2 -->
-          <div class="movie-card">
-            <div class="relative">
-              <img src="./images/mk_poster.png" alt="" />
-              <span class="ratings bg-green-500">91%</span>
-            </div>
-            <!-- Flex Container for Movie Details -->
-            <div class="movie-details">
-              <p class="movie-card-title">Ballerina</p>
-              <p class="movie-card-date">May 2025 • Fantasy</p>
-              <a class="movie-card-watchlist" href=""
-                ><i class="fa-solid fa-square-plus mr-2"></i
-                ><span>Add to Watchlist</span></a
-              >
-            </div>
-          </div>
-          <!-- Movie Card 2 -->
-          <div class="movie-card">
-            <div class="relative">
-              <img src="./images/mk_poster.png" alt="" />
-              <span
-                class="ratings absolute rounded top-2 right-2 bg-green-500 text-white px-2 py-1 text-sm font-semibold"
-                >91%</span
-              >
-            </div>
-            <!-- Flex Container for Movie Details -->
-            <div class="movie-details">
-              <p class="movie-card-title">Very Long Text that may overflow</p>
-              <p class="movie-card-date">May 2025 • Adventure</p>
-              <a class="movie-card-watchlist" href=""
-                ><i class="fa-solid fa-square-plus mr-2"></i
-                ><span>Add to Watchlist</span></a
-              >
-            </div>
-          </div>
         </div>
       </section>
       <!-- Popular Movies Section -->
@@ -185,67 +133,14 @@
         <p class="text-lightBlack pt-1 pb-5">What's Hot Right Now</p>
         <!-- Flex Container for Movies -->
         <div
-          class="grid grid-cols-2 items-center gap-8 md:grid-cols-3 lg:grid-cols-5"
+          id="popular-movies"
+          class="grid grid-cols-2 items-center gap-y-10 gap-x-8 md:grid-cols-3 lg:grid-cols-5"
         >
           <!-- Movie Cards -->
-          <!-- Movie Card 1 -->
-          <div class="movie-card">
-            <div class="relative">
-              <img src="./images/mk_poster.png" alt="" />
-              <span
-                class="ratings absolute rounded top-2 right-2 bg-green-500 text-white px-2 py-1 text-sm font-semibold"
-                >91%</span
-              >
-            </div>
-            <!-- Flex Container for Movie Details -->
-            <div class="movie-details">
-              <p class="movie-card-title">How to Train Your Dragon</p>
-              <p class="movie-card-date">Apr 2025 • Action</p>
-              <button class="movie-card-watchlist" href="">
-                <i class="fa-solid fa-square-plus mr-2"></i
-                ><span>Add to Watchlist</span>
-              </button>
-            </div>
-          </div>
-          <!-- Movie Card 2 -->
-          <div class="movie-card">
-            <div class="relative">
-              <img src="./images/mk_poster.png" alt="" />
-              <span class="ratings bg-green-500">91%</span>
-            </div>
-            <!-- Flex Container for Movie Details -->
-            <div class="movie-details">
-              <p class="movie-card-title">Ballerina</p>
-              <p class="movie-card-date">May 2025 • Fantasy</p>
-              <button class="movie-card-watchlist" href="">
-                <i class="fa-solid fa-square-plus mr-2"></i
-                ><span>Add to Watchlist</span>
-              </button>
-            </div>
-          </div>
-          <!-- Movie Card 2 -->
-          <div class="movie-card">
-            <div class="relative">
-              <img src="./images/mk_poster.png" alt="" />
-              <span
-                class="ratings absolute rounded top-2 right-2 bg-green-500 text-white px-2 py-1 text-sm font-semibold"
-                >91%</span
-              >
-            </div>
-            <!-- Flex Container for Movie Details -->
-            <div class="movie-details">
-              <p class="movie-card-title">Very Long Text that may overflow</p>
-              <p class="movie-card-date">May 2025 • Adventure</p>
-              <button class="movie-card-watchlist" href="">
-                <i class="fa-solid fa-square-plus mr-2"></i
-                ><span>Add to Watchlist</span>
-              </button>
-            </div>
-          </div>
         </div>
       </section>
-      <!-- Popular Streaming Section -->
-      <section class="popular-movies p-4 pt-0 my-10 md:p-2">
+      <!-- Streaming Show Section -->
+      <section class="streaming-section p-4 pt-0 my-10 md:p-2">
         <!-- Flex container for Title and Link -->
         <div class="flex justify-between items-center">
           <h2
@@ -257,73 +152,18 @@
             >View All</a
           >
         </div>
-        <p class="text-lightBlack pt-1 pb-5">
-          Stream these on your favorite platforms and services
-        </p>
+        <p class="text-lightBlack pt-1 pb-5">Your next binge-watch awaits</p>
         <!-- Flex Container for Movies -->
         <div
-          class="grid grid-cols-2 items-center gap-8 md:grid-cols-3 lg:grid-cols-5"
+          id="streaming"
+          class="grid grid-cols-2 items-center gap-y-10 gap-x-8 md:grid-cols-3 lg:grid-cols-5"
         >
           <!-- Movie Cards -->
-          <!-- Movie Card 1 -->
-          <div class="movie-card">
-            <div class="relative">
-              <img src="./images/mk_poster.png" alt="" />
-              <span
-                class="ratings absolute rounded top-2 right-2 bg-green-500 text-white px-2 py-1 text-sm font-semibold"
-                >91%</span
-              >
-            </div>
-            <!-- Flex Container for Movie Details -->
-            <div class="movie-details">
-              <p class="movie-card-title">Predator: Killer of Killers</p>
-              <p class="movie-card-date">Apr 2025 • Action</p>
-              <a class="movie-card-watchlist" href=""
-                ><i class="fa-solid fa-square-plus mr-2"></i
-                ><span>Add to Watchlist</span></a
-              >
-            </div>
-          </div>
-          <!-- Movie Card 2 -->
-          <div class="movie-card">
-            <div class="relative">
-              <img src="./images/mk_poster.png" alt="" />
-              <span class="ratings bg-green-500">91%</span>
-            </div>
-            <!-- Flex Container for Movie Details -->
-            <div class="movie-details">
-              <p class="movie-card-title">Ballerina</p>
-              <p class="movie-card-date">May 2025 • Fantasy</p>
-              <a class="movie-card-watchlist" href=""
-                ><i class="fa-solid fa-square-plus mr-2"></i
-                ><span>Add to Watchlist</span></a
-              >
-            </div>
-          </div>
-          <!-- Movie Card 2 -->
-          <div class="movie-card">
-            <div class="relative">
-              <img src="./images/mk_poster.png" alt="" />
-              <span
-                class="ratings absolute rounded top-2 right-2 bg-green-500 text-white px-2 py-1 text-sm font-semibold"
-                >91%</span
-              >
-            </div>
-            <!-- Flex Container for Movie Details -->
-            <div class="movie-details">
-              <p class="movie-card-title">Very Long Text that may overflow</p>
-              <p class="movie-card-date">May 2025 • Adventure</p>
-              <a class="movie-card-watchlist" href=""
-                ><i class="fa-solid fa-square-plus mr-2"></i
-                ><span>Add to Watchlist</span></a
-              >
-            </div>
-          </div>
         </div>
       </section>
 
       <!-- Popular List Section -->
-      <section class="popular-list pb-10">
+      <section class="popular-list pb-10 pt-6">
         <!-- Flex Container for 3 panels -->
         <div
           class="grid grid-cols-1 items-center gap-x-8 md:grid-cols-2 lg:grid-cols-3"

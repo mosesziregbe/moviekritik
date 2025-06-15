@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta
+      charset="UTF-8"
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caprasimo&family=Passion+One:wght@400;700;900&family=Rampart+One&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./js/script.js" defer></script>
+    <title>Movie Kritik: Movies | Tv Shows | Ratings | Box Office</title>
+  </head>
+  <body
+    class="sm:bg-lightGray bg-white m-0 p-0 font-montserrat overflow-x-hidden"
+  >
+    <nav class="container mx-auto mb-0 py-2 px-4 bg-lightRed lg:w-container">
+      <!-- Flex Container for navigation items -->
+      <div class="flex items-center justify-between my-3 gap-x-4">
+        <!-- Logo -->
+        <div>
+          <!-- <img class="logo" src="./images/mk_logo-wobg.png" alt="" /> -->
+          <p
+            class="text-white font-bold text-lg font-rampart sm:text-xl md:text-2xl cursor-pointer"
+          >
+            moviekritic
+          </p>
+        </div>
+        <!-- Search Box -->
+        <div class="relative flex-1 mx-2 lg:mx-4 max-w-none lg:max-w-lg">
+          <i
+            class="fa-solid fa-magnifying-glass cursor-pointer absolute left-3 top-1/2 transform -translate-y-1/2 text-white text-lg hover:text-darkBlue transition-colors duration-300 ease-in-out"
+          ></i>
+          <input
+            type="text"
+            placeholder="Search"
+            class="w-full rounded-3xl text-white bg-darkGray p-2 pl-10 outline-black-50"
+          />
+        </div>
+
+        <!-- Hamburger -->
+        <buttons
+          id="menu-btn"
+          class="md:hidden relative z-50 w-8 h-8 flex flex-col justify-center items-center gap-y-1 p-2 bg-white rounded-lg cursor-pointer transition-all duration-300"
+        >
+          <span
+            class="block h-1 w-4 bg-black transition-transform origin-center"
+          ></span>
+          <span class="block h-1 w-4 bg-black transition-opacity"></span>
+          <span
+            class="block h-1 w-4 bg-black transition-transform origin-center"
+          ></span>
+        </buttons>
+
+        <!-- Nav Menu Items -->
+        <div class="nav-menu hidden md:block">
+          <ul class="navbar-menu-list">
+            <li class="navbar-menu-item">
+              <a href="#" class="navbar-menu-link">Movies</a>
+            </li>
+            <li class="navbar-menu-item">
+              <a href="#" class="navbar-menu-link">TV Shows</a>
+            </li>
+            <li class="navbar-menu-item">
+              <a href="#" class="navbar-menu-link">Watchlist</a>
+            </li>
+            <li class="navbar-menu-item">
+              <a href="#" class="navbar-menu-link">More</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <main class="container mx-auto bg-white md:px-4 lg:w-container pb-15">
+      <!-- Watchlist Section -->
+      <section class="watchlist p-4 md:p-2">
+        <div class="mt-5 mb-5">
+          <h2 class="capitalize text-lg font-semibold text-lightBlack">
+            &#129136; Discover Movies & Shows
+          </h2>
+        </div>
+        <div class="border-t-2 border-lightGray">
+          <!-- Flex container for Title and Select Drop Down -->
+          <div class="flex justify-start items-start pt-5 mb-5 gap-x-8">
+            <h2
+              class="text-xl sm:text-2xl font-semibold leading-[1.6] text-lightBlack tracking-wide font-poppins"
+            >
+              My Watchlist
+            </h2>
+            <div class="pb-5">
+              <select
+                name="type"
+                id="type"
+                class="border-2 border-lightGray p-3 rounded text-base font-bold uppercase font-poppins"
+              >
+                <option value="movie">Movies</option>
+                <option value="tv">Shows</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Flex Container for Trending Movies and Shows -->
+        <div
+          id="watchlist"
+          class="grid grid-cols-2 items-center gap-y-10 gap-x-8 md:grid-cols-3 lg:grid-cols-5"
+        >
+          <!-- Movie Cards -->
+        </div>
+      </section>
+
+      <!-- Bottom Nav Bar  -->
+      <nav class="container mx-auto bottom-nav navbar-scroll lg:hidden">
+        <div>
+          <ul>
+            <li>
+              <a
+                class="group transition-colors duration-300 ease-in-out"
+                href=""
+                ><i
+                  class="fa-solid fa-ticket text-xl text-lightBlack group-hover:text-red-400"
+                ></i
+                ><span>Home</span></a
+              >
+            </li>
+            <li>
+              <a
+                class="group transition-colors duration-300 ease-in-out"
+                href=""
+                ><i
+                  class="fa-solid fa-film text-xl text-lightBlack group-hover:text-red-400"
+                ></i
+                ><span>Movies</span></a
+              >
+            </li>
+            <li>
+              <a
+                class="group transition-colors duration-300 ease-in-out"
+                href=""
+                ><i
+                  class="fa-solid fa-tv text-xl text-lightBlack group-hover:text-red-400"
+                ></i
+                ><span>TV Shows</span></a
+              >
+            </li>
+            <li>
+              <a
+                class="group transition-colors duration-300 ease-in-out"
+                href=""
+                ><i
+                  class="fa-regular fa-circle-user text-xl text-lightBlack group-hover:text-red-400"
+                ></i
+                ><span>My Watchlist</span></a
+              >
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </main>
+    <!-- Footer -->
+    <footer
+      class="footer container bg-lightBlack mx-auto text-white lg:w-container"
+    >
+      <!-- Flex Container for Footer Items -->
+      <div
+        class="flex items-center justify-center flex-col-reverse gap-y-5 md:items-start md:justify-between md:flex-row pt-6 px-4 pb-3 md:pb-6"
+      >
+        <div class="quick-links-container">
+          <!-- Quick Links 1 -->
+          <div class="quick-links">
+            <ul>
+              <li><a href="">About MovieKritic</a></li>
+              <li><a href="">How We Rate</a></li>
+            </ul>
+          </div>
+          <!-- Quick Links 2 -->
+          <div class="quick-links">
+            <ul>
+              <li><a href="">Privacy Policy</a></li>
+              <li><a href="">Terms of Service</a></li>
+              <li><a href="">Contact Us</a></li>
+              <li><a href="">Advertise With Us</a></li>
+            </ul>
+          </div>
+        </div>
+        <!-- Email Newsletter -->
+        <div
+          class="newsletter text-center flex flex-col justify-between w-64 gap-y-1.5"
+        >
+          <h4 class="text-base font-normal">Stay Connected</h4>
+          <h5 class="font-semibold text-lg uppercase">
+            <i class="fa-solid fa-envelope"></i>
+            Join the MovieKritic Community
+          </h5>
+          <p class="pb-2">
+            Get weekly recommendations and never miss what's trending!
+          </p>
+          <div class="pb-1.5">
+            <a
+              href=""
+              class="uppercase rounded-2xl bg-blue-500 text-white text-sm font-semibold p-1 px-3 hover:opacity-90 transition-opacity duration-300 ease-in-out"
+              >Join the newsletter</a
+            >
+          </div>
+        </div>
+        <!-- Socials -->
+        <div class="socials">
+          <h4
+            class="uppercase font-semibold text-lg pb-2 text-center md:text-start"
+          >
+            Follow Us
+          </h4>
+          <div class="flex justify-center items-center gap-x-4">
+            <a href=""><i class="fa-brands fa-facebook text-xl"></i></a>
+            <a href=""><i class="fa-brands fa-square-x-twitter text-xl"></i></a>
+            <a href=""><i class="fa-brands fa-youtube text-xl"></i></a>
+            <a href=""><i class="fa-brands fa-instagram text-xl"></i></a>
+            <a href=""><i class="fa-brands fa-tiktok text-xl"></i></a>
+          </div>
+        </div>
+      </div>
+      <p class="text-center text-xs text-gray-400 pt-4 pb-2 px-6">
+        © 2025 MovieKritic. All rights reserved. Movie data provided by The
+        Movie Database (TMDB)
+      </p>
+    </footer>
+  </body>
+</html>

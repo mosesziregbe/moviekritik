@@ -8,10 +8,13 @@
     --color-red-400: oklch(0.704 0.191 22.216);
     --color-orange-200: oklch(0.901 0.076 70.697);
     --color-yellow-300: oklch(0.905 0.182 98.111);
+    --color-yellow-400: oklch(0.852 0.199 91.936);
     --color-green-500: oklch(0.723 0.219 149.579);
     --color-blue-200: oklch(0.882 0.059 254.128);
+    --color-blue-400: oklch(0.707 0.165 254.624);
     --color-blue-500: oklch(0.623 0.214 259.815);
     --color-gray-200: oklch(0.928 0.006 264.531);
+    --color-gray-300: oklch(0.872 0.01 258.338);
     --color-gray-400: oklch(0.707 0.022 261.325);
     --color-black: #000;
     --color-white: #fff;
@@ -34,6 +37,7 @@
     --font-weight-semibold: 600;
     --font-weight-bold: 700;
     --tracking-normal: 0em;
+    --tracking-wide: 0.025em;
     --tracking-wider: 0.05em;
     --radius-lg: 0.5rem;
     --radius-2xl: 1rem;
@@ -201,9 +205,6 @@
   .absolute {
     position: absolute;
   }
-  .fixed {
-    position: fixed;
-  }
   .relative {
     position: relative;
   }
@@ -258,14 +259,23 @@
   .my-10 {
     margin-block: calc(var(--spacing) * 10);
   }
+  .mt-5 {
+    margin-top: calc(var(--spacing) * 5);
+  }
   .mt-8 {
     margin-top: calc(var(--spacing) * 8);
+  }
+  .mt-10 {
+    margin-top: calc(var(--spacing) * 10);
   }
   .mr-2 {
     margin-right: calc(var(--spacing) * 2);
   }
   .mb-0 {
     margin-bottom: calc(var(--spacing) * 0);
+  }
+  .mb-5 {
+    margin-bottom: calc(var(--spacing) * 5);
   }
   .block {
     display: block;
@@ -341,8 +351,14 @@
   .flex-col-reverse {
     flex-direction: column-reverse;
   }
+  .flex-wrap {
+    flex-wrap: wrap;
+  }
   .items-center {
     align-items: center;
+  }
+  .items-start {
+    align-items: flex-start;
   }
   .justify-between {
     justify-content: space-between;
@@ -350,11 +366,8 @@
   .justify-center {
     justify-content: center;
   }
-  .justify-end {
-    justify-content: flex-end;
-  }
-  .gap-8 {
-    gap: calc(var(--spacing) * 8);
+  .justify-start {
+    justify-content: flex-start;
   }
   .gap-x-2 {
     column-gap: calc(var(--spacing) * 2);
@@ -373,6 +386,9 @@
   }
   .gap-y-5 {
     row-gap: calc(var(--spacing) * 5);
+  }
+  .gap-y-10 {
+    row-gap: calc(var(--spacing) * 10);
   }
   .overflow-x-hidden {
     overflow-x: hidden;
@@ -393,6 +409,14 @@
     border-style: var(--tw-border-style);
     border-width: 1px;
   }
+  .border-2 {
+    border-style: var(--tw-border-style);
+    border-width: 2px;
+  }
+  .border-t-2 {
+    border-top-style: var(--tw-border-style);
+    border-top-width: 2px;
+  }
   .border-l {
     border-left-style: var(--tw-border-style);
     border-left-width: 1px;
@@ -409,6 +433,12 @@
   .bg-darkGray {
     background-color: var(--color-darkGray);
   }
+  .bg-gray-300 {
+    background-color: var(--color-gray-300);
+  }
+  .bg-gray-400 {
+    background-color: var(--color-gray-400);
+  }
   .bg-green-500 {
     background-color: var(--color-green-500);
   }
@@ -418,8 +448,14 @@
   .bg-lightRed {
     background-color: var(--color-lightRed);
   }
+  .bg-red-400 {
+    background-color: var(--color-red-400);
+  }
   .bg-white {
     background-color: var(--color-white);
+  }
+  .bg-yellow-400 {
+    background-color: var(--color-yellow-400);
   }
   .p-0 {
     padding: calc(var(--spacing) * 0);
@@ -429,6 +465,9 @@
   }
   .p-2 {
     padding: calc(var(--spacing) * 2);
+  }
+  .p-3 {
+    padding: calc(var(--spacing) * 3);
   }
   .p-4 {
     padding: calc(var(--spacing) * 4);
@@ -457,14 +496,11 @@
   .pt-1 {
     padding-top: calc(var(--spacing) * 1);
   }
-  .pt-2 {
-    padding-top: calc(var(--spacing) * 2);
-  }
-  .pt-3 {
-    padding-top: calc(var(--spacing) * 3);
-  }
   .pt-4 {
     padding-top: calc(var(--spacing) * 4);
+  }
+  .pt-5 {
+    padding-top: calc(var(--spacing) * 5);
   }
   .pt-6 {
     padding-top: calc(var(--spacing) * 6);
@@ -484,9 +520,6 @@
   .pb-3 {
     padding-bottom: calc(var(--spacing) * 3);
   }
-  .pb-4 {
-    padding-bottom: calc(var(--spacing) * 4);
-  }
   .pb-5 {
     padding-bottom: calc(var(--spacing) * 5);
   }
@@ -495,6 +528,9 @@
   }
   .pb-14 {
     padding-bottom: calc(var(--spacing) * 14);
+  }
+  .pb-15 {
+    padding-bottom: calc(var(--spacing) * 15);
   }
   .pl-5 {
     padding-left: calc(var(--spacing) * 5);
@@ -510,6 +546,9 @@
   }
   .font-passion {
     font-family: var(--font-passion);
+  }
+  .font-poppins {
+    font-family: var(--font-poppins);
   }
   .font-rampart {
     font-family: var(--font-rampart);
@@ -558,6 +597,10 @@
     --tw-tracking: var(--tracking-normal);
     letter-spacing: var(--tracking-normal);
   }
+  .tracking-wide {
+    --tw-tracking: var(--tracking-wide);
+    letter-spacing: var(--tracking-wide);
+  }
   .text-blue-500 {
     color: var(--color-blue-500);
   }
@@ -578,6 +621,9 @@
   }
   .text-yellow-300 {
     color: var(--color-yellow-300);
+  }
+  .capitalize {
+    text-transform: capitalize;
   }
   .uppercase {
     text-transform: uppercase;
@@ -650,6 +696,12 @@
   .sm\:bg-lightGray {
     @media (width >= 40rem) {
       background-color: var(--color-lightGray);
+    }
+  }
+  .sm\:text-2xl {
+    @media (width >= 40rem) {
+      font-size: var(--text-2xl);
+      line-height: var(--tw-leading, var(--text-2xl--line-height));
     }
   }
   .sm\:text-xl {
@@ -852,7 +904,7 @@
 }
 .movie-card {
   display: flex;
-  height: 430px;
+  height: 435px;
   flex-direction: column;
 }
 .movie-details {
@@ -863,10 +915,16 @@
 .movie-card-title {
   margin-top: calc(var(--spacing) * 3);
   min-height: 3rem;
+  cursor: pointer;
   overflow: hidden;
   font-size: var(--text-sm);
   line-height: var(--tw-leading, var(--text-sm--line-height));
   color: var(--color-lightBlack);
+  &:hover {
+    @media (hover: hover) {
+      color: var(--color-blue-400);
+    }
+  }
 }
 .movie-card-date {
   min-height: 1.5rem;
@@ -905,6 +963,33 @@
     font-size: var(--text-sm);
     line-height: var(--tw-leading, var(--text-sm--line-height));
   }
+}
+.movie-card-watchlist i {
+  margin-right: calc(var(--spacing) * 2);
+}
+.movie-card-watchlist .fa-square-plus {
+  display: inline;
+}
+.movie-card-watchlist .fa-check {
+  display: none;
+}
+.movie-card-watchlist .not-watchlisted {
+  display: inline;
+}
+.movie-card-watchlist .in-watchlist {
+  display: none;
+}
+.movie-card-watchlist.active .fa-square-plus {
+  display: none;
+}
+.movie-card-watchlist.active .fa-check {
+  display: inline;
+}
+.movie-card-watchlist.active .not-watchlisted {
+  display: none;
+}
+.movie-card-watchlist.active .in-watchlist {
+  display: inline;
 }
 .ratings {
   position: absolute;
@@ -1011,6 +1096,7 @@
 .quick-links-container {
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   align-items: center;
   gap: calc(var(--spacing) * 2);
   text-align: center;
