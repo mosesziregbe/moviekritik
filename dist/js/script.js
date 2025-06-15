@@ -86,6 +86,10 @@ async function displayTrendingMoviesToday() {
 
     displayRatingsBackground(trendingTodayEl);
   });
+
+  setTimeout(() => {
+    initializeWatchlistButtons();
+  }, 2000);
 }
 
 // Add this ONCE, outside the function:
@@ -95,38 +99,105 @@ document.addEventListener('click', function (e) {
     const mediaType = e.target.closest('.movie-card-watchlist').dataset
       .mediaType;
 
-    const newItem = { movieId, mediaType };
-
     const button = e.target.closest('.movie-card-watchlist');
 
-    const span = button.querySelector('span');
+    // const span = button.querySelector('span');
 
-    button.classList.toggle('active');
-    button.classList.toggle('bg-gray-300');
+    // button.classList.toggle('active');
+    // button.classList.toggle('bg-gray-300');
+
+    const movieData = {
+      movieId: button.dataset.movieId,
+      mediaType: button.dataset.mediaType,
+    };
 
     console.log('Clicked:', mediaType, movieId);
 
-    // Set Items to local storage
-    addMovieToStorage(newItem);
+    // Get Items from local storage
+    let watchlist = JSON.parse(localStorage.getItem('watchlist') || '[]');
+
+    const existingIndex = watchlist.findIndex(
+      (item) => item.movieId === movieData.movieId
+    );
+
+    if (existingIndex >= 0) {
+      //Remove from watchlist
+      watchlist.splice(existingIndex, 1);
+      localStorage.setItem('watchlist', JSON.stringify(watchlist));
+      broadcastWatchlistChange(movieData, false); // Broadcast Change
+    } else {
+      // Add to watchlist
+      watchlist.push(movieData);
+      localStorage.setItem('watchlist', JSON.stringify(watchlist));
+      broadcastWatchlistChange(movieData, true); // Broadcast Change
+    }
   }
 });
 
-// Add to local storage
-function addMovieToStorage(watchlist) {
-  let watchlistFromStorage;
+document.addEventListener('watchlistChanged', function (e) {
+  const { movieData, isAdded } = e.detail;
 
-  if (localStorage.getItem('watchlist') === null) {
-    watchlistFromStorage = [];
-  } else {
-    watchlistFromStorage = JSON.parse(localStorage.getItem('watchlist'));
-  }
+  // Find all buttons for this movie
+  const buttons = document.querySelectorAll(
+    `[data-movie-id="${movieData.movieId}"]`
+  );
 
-  // Add new item to array
-  watchlistFromStorage.push(watchlist);
+  console.log('Selector:', `[data-movie-id="${movieData.movieId}"]`);
 
-  // Convert to JSON string and set to local storage
-  localStorage.setItem('watchlist', JSON.stringify(watchlistFromStorage));
+  // update each button
+  buttons.forEach((button) => {
+    if (isAdded) {
+      button.classList.add('active', 'bg-gray-300');
+    } else {
+      button.classList.remove('active', 'bg-gray-300');
+    }
+
+    // REMOVE THE MOVIE CARD FROM WATCHLIST PAGE
+    if (window.location.pathname.includes('watchlist')) {
+      button.closest('.movie-card').remove();
+    }
+  });
+});
+
+function broadcastWatchlistChange(movieData, isAdded) {
+  document.dispatchEvent(
+    new CustomEvent('watchlistChanged', {
+      detail: { movieData, isAdded },
+    })
+  );
 }
+
+function initializeWatchlistButtons() {
+  const savedWatchlist = JSON.parse(localStorage.getItem('watchlist') || '[]');
+
+  // For each movie update all it buttons
+  savedWatchlist.forEach((movieData) => {
+    const buttons = document.querySelectorAll(
+      `[data-movie-id="${movieData.movieId}"]`
+    );
+
+    buttons.forEach((button) => {
+      button.classList.add('active', 'bg-gray-300');
+    });
+  });
+}
+
+// Add to local storage
+// function addMovieToStorage(watchlist) {
+//   let watchlistFromStorage;
+
+//   if (localStorage.getItem('watchlist') === null) {
+//     watchlistFromStorage = [];
+//   } else {
+//     watchlistFromStorage = JSON.parse(localStorage.getItem('watchlist'));
+//   }
+
+// Add new item to array
+//   watchlistFromStorage.push(watchlist);
+
+//   // Convert to JSON string and set to local storage
+//   localStorage.setItem('watchlist', JSON.stringify(watchlistFromStorage));
+// }
 
 function displayRatingsBackground(sectionEl) {
   ratingsEl = sectionEl.querySelectorAll('.ratings');
@@ -206,9 +277,11 @@ async function displayPopularMovies() {
               <p class="movie-card-date">${getDate(movie.release_date)} • ${
       genreName.split(' & ')[0]
     }</p>
-              <a class="movie-card-watchlist" href=""
-                ><i class="fa-solid fa-square-plus mr-2"></i
-                ><span>Add to Watchlist</span></a
+              <button id="movie-card-btn" class="movie-card-watchlist transition-all duration-300" data-movie-id="${
+                movie.id
+              }" data-media-type=${movie.media_type} href=""
+                ><i class="fa-solid fa-square-plus"></i
+                ><i class="fa-solid fa-check"></i><span class="not-watchlisted">Add to Watchlist</span><span class="in-watchlist">In Watchlist</span></button
               >
             </div>`;
 
@@ -232,48 +305,50 @@ async function displayStreamingShows() {
 
   // console.log(recentShows);
 
-  recentShows.forEach(async (show) => {
+  recentShows.forEach(async (movie) => {
     // Create a div
     const div = document.createElement('div');
 
     // Add the classname - 'movie-card'
     div.classList.add('movie-card');
 
-    const genreName = await getGenreName('tv', show.genre_ids[0]);
+    const genreName = await getGenreName('tv', movie.genre_ids[0]);
 
     div.innerHTML = `<div class="relative">
-              <a href="tv-details.html?id=${show.id}">
+              <a href="tv-details.html?id=${movie.id}">
             ${
-              show.poster_path
+              movie.poster_path
                 ? `<img
-            src="https://image.tmdb.org/t/p/w500${show.poster_path}"
-            alt="${show.name}"
+            src="https://image.tmdb.org/t/p/w500${movie.poster_path}"
+            alt="${movie.name}"
           />`
                 : `<img
           src="images/mk_poster.jpg"
           class="card-img-top"
-          alt="${show.name}"
+          alt="${movie.name}"
         />`
             }
           </a>
               <span
                 class="ratings absolute rounded top-2 right-2 text-white px-2 py-1 text-sm font-semibold"
                 >${
-                  show.vote_average > 0
-                    ? `${Math.round(show.vote_average * 10)}%`
+                  movie.vote_average > 0
+                    ? `${Math.round(movie.vote_average * 10)}%`
                     : 'NA'
                 }</span
               >
             </div>
             <!-- Flex Container for Movie Details -->
             <div class="movie-details">
-              <p class="movie-card-title">${show.name}</p>
-              <p class="movie-card-date">${getDate(show.first_air_date)} • ${
+              <p class="movie-card-title">${movie.name}</p>
+              <p class="movie-card-date">${getDate(movie.first_air_date)} • ${
       genreName.split(' & ')[0]
     }</p>
-              <a class="movie-card-watchlist" href=""
-                ><i class="fa-solid fa-square-plus mr-2"></i
-                ><span>Add to Watchlist</span></a
+              <button id="movie-card-btn" class="movie-card-watchlist transition-all duration-300" data-movie-id="${
+                movie.id
+              }" data-media-type=${movie.media_type} href=""
+                ><i class="fa-solid fa-square-plus"></i
+                ><i class="fa-solid fa-check"></i><span class="not-watchlisted">Add to Watchlist</span><span class="in-watchlist">In Watchlist</span></button
               >
             </div>`;
 
@@ -284,7 +359,88 @@ async function displayStreamingShows() {
   });
 }
 
-//
+// WATCHLIST PAGE
+
+async function displayWatchlistPage() {
+  // Get saved watchlist
+  const savedWatchlist = JSON.parse(localStorage.getItem('watchlist') || '[]');
+
+  if (savedWatchlist.length === 0) {
+    document.querySelector('#watchlist').innerHTML =
+      '<p class="text-xl text-lightBlack">Your watchlist is empty.</p>';
+    return;
+  }
+
+  // Now fetch each movie's full details from API
+  for (const savedMovie of savedWatchlist) {
+    try {
+      // Fetch using the saved ID
+      const movieDetails = await fetchAPIData(
+        `${savedMovie.mediaType}/${savedMovie.movieId}`
+      );
+
+      displayWatchlistMovieCard(movieDetails, savedMovie.mediaType);
+    } catch (error) {
+      console.log('Error fetching movie:', savedMovie.movieId);
+    }
+  }
+
+  // After all movies are loaded, initialize the buttons (they should all be "added" state)
+  setTimeout(() => {
+    initializeWatchlistButtons();
+  }, 500);
+}
+
+function displayWatchlistMovieCard(movie, mediaType) {
+  const div = document.createElement('div');
+  div.classList.add('movie-card');
+
+  div.innerHTML = `<div class="relative">
+              <a href="${movie.media_type}-details.html?id=${movie.id}">
+            ${
+              movie.poster_path
+                ? `<img
+            src="https://image.tmdb.org/t/p/w500${movie.poster_path}"
+            alt="${movie.title || movie.name}"
+          />`
+                : `<img
+          src="images/mk_poster.jpg"
+          class="card-img-top"
+          alt="${movie.title || movie.name}"
+        />`
+            }
+          </a>
+              <span
+                class="ratings absolute rounded top-2 right-2 text-white px-2 py-1 text-sm font-semibold"
+                >${
+                  movie.vote_average > 0
+                    ? `${Math.round(movie.vote_average * 10)}%`
+                    : 'NA'
+                }</span
+              >
+            </div>
+            <!-- Flex Container for Movie Details -->
+            <div class="movie-details">
+              <p class="movie-card-title">${movie.title || movie.name}</p>
+              <p class="movie-card-date">${
+                movie.release_date
+                  ? getDate(movie.release_date)
+                  : getDate(movie.first_air_date)
+              } • ${'to be fixed'}</p>
+              <button id="movie-card-btn" class="movie-card-watchlist transition-all duration-300" data-movie-id="${
+                movie.id
+              }" data-media-type=${movie.media_type} href=""
+                ><i class="fa-solid fa-square-plus"></i
+                ><i class="fa-solid fa-check"></i><span class="not-watchlisted">Add to Watchlist</span><span class="in-watchlist">In Watchlist</span></button
+              >
+            </div>`;
+
+  const watchlistContainerEl = document.querySelector('#watchlist');
+
+  watchlistContainerEl.appendChild(div);
+
+  displayRatingsBackground(watchlistContainerEl);
+}
 
 // Global Functions
 
@@ -375,31 +531,31 @@ function getDate(date) {
 // }
 
 // Init App
-// function init() {
-//   switch (global.currentPage) {
-//     case '/':
-//     case '/moviekritik-website/dist/index.html':
-//       displayTrendingMoviesToday();
-//       displayPopularMovies();
-//       displayStreamingShows();
-//       console.log(watchlistBtn);
-//       break;
+function init() {
+  switch (global.currentPage) {
+    case '/':
+    case '/moviekritik-website/dist/index.html':
+      displayTrendingMoviesToday();
+      displayPopularMovies();
+      displayStreamingShows();
+      break;
 
-//     case '/moviekritik-website/dist/watchlist.html':
-//       console.log('watchlist page');
-//       break;
-//   }
-// }
+    case '/moviekritik-website/dist/watchlist.html':
+      console.log('watchlist page');
+      displayWatchlistPage();
+      break;
+  }
+}
 
 // Wait for DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function () {
   // Initialize the app
-  // init();
+  init();
   // console.log(watchlistBtn);
 
-  displayTrendingMoviesToday();
-  displayPopularMovies();
-  displayStreamingShows();
+  // displayTrendingMoviesToday();
+  // displayPopularMovies();
+  // displayStreamingShows();
 });
 
 // Navigation setup function
