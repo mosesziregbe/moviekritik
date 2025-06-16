@@ -30,7 +30,7 @@
     />
     <link rel="stylesheet" href="./style.css" />
     <script src="./js/script.js" defer></script>
-    <title>Movie Kritik: Movies | Tv Shows | Ratings | Box Office</title>
+    <title>Movie Critic: Movies | Tv Shows | Ratings | Box Office</title>
   </head>
   <body
     class="sm:bg-lightGray bg-white m-0 p-0 font-montserrat overflow-x-hidden"
@@ -92,47 +92,37 @@
         </div>
       </div>
     </nav>
-    <main class="container mx-auto bg-white md:px-4 lg:w-container pb-15">
-      <!-- Watchlist Section -->
-      <section class="watchlist p-4 md:p-2">
-        <div class="mt-5 mb-5">
-          <a href=""
-            ><h2 class="capitalize text-lg font-semibold text-lightBlack">
-              &#129136; Discover More to Watch
-            </h2></a
+    <main class="container mx-auto bg-white md:px-4 lg:w-container">
+      <!-- All Movies/Shows Section -->
+      <section class="popular-movies-all p-4 md:p-2">
+        <!-- Flex container for Title and Link -->
+        <div class="flex justify-between items-center mt-8">
+          <h2
+            class="text-2xl font-semibold leading-[1.6] tracking-normal text-lightBlack font-passion"
           >
+            Popular Movies
+          </h2>
         </div>
-        <div class="border-t-2 border-lightGray">
-          <!-- Flex container for Title and Select Drop Down -->
-          <div class="flex justify-start items-start pt-5 mb-5 gap-x-8">
-            <h2
-              class="text-xl sm:text-2xl font-semibold leading-[1.6] text-lightBlack tracking-wide font-poppins"
-            >
-              My Watchlist
-            </h2>
-            <div class="pb-5">
-              <select
-                name="type"
-                id="type"
-                class="border-2 border-lightGray p-3 rounded text-base font-bold uppercase font-poppins"
-              >
-                <option value="movie">All</option>
-                <option value="movie">Movies</option>
-                <option value="tv">Shows</option>
-              </select>
-            </div>
-          </div>
-        </div>
-
+        <p class="text-lightBlack pt-1 pb-5">What's Hot Right Now</p>
         <!-- Flex Container for Trending Movies and Shows -->
         <div
-          id="watchlist"
+          id="popular-movies-all"
           class="grid grid-cols-2 items-center gap-y-10 gap-x-8 md:grid-cols-3 lg:grid-cols-5"
         >
           <!-- Movie Cards -->
         </div>
-        <!-- Load More button  -->
-        <div class="mb-25"></div>
+
+        <!-- Load More Button -->
+        <div class="mb-40">
+          <div class="text-left mt-8">
+            <button
+              id="load-more-btn"
+              class="uppercase rounded-lg bg-blue-500 text-white text-sm font-semibold py-2 px-6 hover:opacity-90 transition-opacity duration-300 ease-in-out cursor-pointer"
+            >
+              Load More
+            </button>
+          </div>
+        </div>
       </section>
 
       <!-- Bottom Nav Bar  -->
@@ -142,7 +132,7 @@
             <li>
               <a
                 class="group transition-colors duration-300 ease-in-out"
-                href="/index.html"
+                href=""
                 ><i
                   class="fa-solid fa-ticket text-xl text-lightBlack group-hover:text-red-400"
                 ></i
@@ -172,7 +162,7 @@
             <li>
               <a
                 class="group transition-colors duration-300 ease-in-out"
-                href=""
+                href="./watchlist.html"
                 ><i
                   class="fa-regular fa-circle-user text-xl text-lightBlack group-hover:text-red-400"
                 ></i

@@ -40,7 +40,7 @@
       <div class="flex items-center justify-between my-3 gap-x-4">
         <!-- Logo -->
         <div>
-          <!-- <img class="logo" src="./images/mk_logo-wobg.png" alt="" /> -->
+          <!-- Site Name / Logo -->
           <p
             class="text-white font-bold text-lg font-rampart sm:text-xl md:text-2xl cursor-pointer"
           >
@@ -87,6 +87,14 @@
             </li>
             <li class="navbar-menu-item">
               <a href="#" class="navbar-menu-link">More</a>
+              <!-- <div class="dropdown-menu">
+                <ul>
+                  <li><a href="">Popular Movies</a></li>
+                  <li><a href="">Popular Shows</a></li>
+                  <li><a href="">Trending This Week</a></li>
+                  <li><a href="">Trending Today</a></li>
+                </ul>
+              </div> -->
             </li>
           </ul>
         </div>
@@ -166,13 +174,13 @@
       <section class="popular-list pb-10 pt-6">
         <!-- Flex Container for 3 panels -->
         <div
-          class="grid grid-cols-1 items-center gap-x-8 md:grid-cols-2 lg:grid-cols-3"
+          class="grid grid-cols-1 items-start justify-start gap-x-8 md:grid-cols-2 lg:grid-cols-3"
         >
           <!-- Popular Streaming Movies 1-->
           <div class="popular-streaming pl-5 pb-14 pr-5 md:pr-0">
             <div class="flex justify-between items-center pb-3">
               <div class="flex justify-center items-center gap-x-2">
-                <h3>Popular Streaming Movies</h3>
+                <h3>Popular Movies</h3>
                 <img src="./images/icons8-streaming-32.png" alt="" />
               </div>
               <a class="uppercase text-blue-500 text-sm" href="">View All</a>
@@ -327,84 +335,31 @@
             </ul>
           </div>
 
-          <!-- Top 10 Box Office 3-->
+          <!-- Top 5 Box Office 3-->
           <div
             class="box-office pl-5 pb-14 border-l border-lightGray pr-5 md:pr-0"
           >
             <div class="flex justify-between items-center pb-3">
               <div class="flex justify-center items-center">
-                <h3>Top 10 Box Office</h3>
+                <h3>Weekend Top 5 Box Office</h3>
                 <img
                   class="popular-list-icons"
                   src="images/icons8-popcorn-48.png"
                   alt=""
                 />
               </div>
-              <a class="uppercase text-blue-500 text-sm" href="">View All</a>
+              <a class="uppercase text-blue-500 text-sm" href=""></a>
             </div>
             <!-- Movies List  -->
-            <ul class="movies-list-items">
-              <li>
-                <!-- Movie Name  -->
-                <a href="">STRAW</a>
-                <!-- Movie Ratings -->
-                <a href="">80%</a>
-              </li>
-              <li>
-                <!-- Movie Name  -->
-                <a href="">Sinners</a>
-                <!-- Movie Ratings -->
-                <a href="">80%</a>
-              </li>
-              <li>
-                <!-- Movie Name  -->
-                <a href="">How to Train a Dragon</a>
-                <!-- Movie Ratings -->
-                <a href="">80%</a>
-              </li>
-              <li>
-                <!-- Movie Name  -->
-                <a href="">Very Long text That may overflow</a>
-                <!-- Movie Ratings -->
-                <a href="">80%</a>
-              </li>
-              <li>
-                <!-- Movie Name  -->
-                <a href="">STRAW</a>
-                <!-- Movie Ratings -->
-                <a href="">80%</a>
-              </li>
-              <li>
-                <!-- Movie Name  -->
-                <a href="">STRAW</a>
-                <!-- Movie Ratings -->
-                <a href="">80%</a>
-              </li>
-              <li>
-                <!-- Movie Name  -->
-                <a href="">STRAW</a>
-                <!-- Movie Ratings -->
-                <a href="">80%</a>
-              </li>
-              <li>
-                <!-- Movie Name  -->
-                <a href="">STRAW</a>
-                <!-- Movie Ratings -->
-                <a href="">80%</a>
-              </li>
-              <li>
-                <!-- Movie Name  -->
-                <a href="">STRAW</a>
-                <!-- Movie Ratings -->
-                <a href="">80%</a>
-              </li>
-              <li>
-                <!-- Movie Name  -->
-                <a href="">STRAW</a>
-                <!-- Movie Ratings -->
-                <a href="">80%</a>
-              </li>
-            </ul>
+            <!-- Box Office Mojo Widget -->
+            <div class="pt-3">
+              <!-- Styled version with custom classes -->
+              <script
+                type="text/javascript"
+                language="javascript"
+                src="https://www.boxofficemojo.com/data/js/wknd5.php?h=bom-header&r=bom-row"
+              ></script>
+            </div>
           </div>
         </div>
       </section>
@@ -496,11 +451,12 @@
             Get weekly recommendations and never miss what's trending!
           </p>
           <div class="pb-1.5">
-            <a
+            <button
               href=""
               class="uppercase rounded-2xl bg-blue-500 text-white text-sm font-semibold p-1 px-3 hover:opacity-90 transition-opacity duration-300 ease-in-out"
-              >Join the newsletter</a
             >
+              Join the newsletter
+            </button>
           </div>
         </div>
         <!-- Socials -->
