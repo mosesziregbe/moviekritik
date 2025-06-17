@@ -85,16 +85,20 @@
             <li class="navbar-menu-item">
               <a href="#" class="navbar-menu-link">Watchlist</a>
             </li>
-            <li class="navbar-menu-item">
+            <li class="navbar-menu-item menu-item">
               <a href="#" class="navbar-menu-link">More</a>
-              <!-- <div class="dropdown-menu">
+              <div class="dropdown">
                 <ul>
-                  <li><a href="">Popular Movies</a></li>
-                  <li><a href="">Popular Shows</a></li>
-                  <li><a href="">Trending This Week</a></li>
-                  <li><a href="">Trending Today</a></li>
+                  <li class="dropdown-item"><a href="">Popular Movies</a></li>
+                  <li class="dropdown-item"><a href="">Popular Shows</a></li>
+                  <li class="dropdown-item">
+                    <a href="">Trending This Week ♨️</a>
+                  </li>
+                  <li class="dropdown-item">
+                    <a href="">Trending Today 🔥</a>
+                  </li>
                 </ul>
-              </div> -->
+              </div>
             </li>
           </ul>
         </div>
@@ -451,12 +455,7 @@
             Get weekly recommendations and never miss what's trending!
           </p>
           <div class="pb-1.5">
-            <button
-              href=""
-              class="uppercase rounded-2xl bg-blue-500 text-white text-sm font-semibold p-1 px-3 hover:opacity-90 transition-opacity duration-300 ease-in-out"
-            >
-              Join the newsletter
-            </button>
+            <button href="" class="footer-btn">Join the newsletter</button>
           </div>
         </div>
         <!-- Socials -->
@@ -480,5 +479,13 @@
         Movie Database (TMDB)
       </p>
     </footer>
+    <!-- Spinner Overlay -->
+    <div class="spinner-overlay hidden" id="spinnerOverlay">
+      <div class="dots-spinner">
+        <span class="dot-1"></span>
+        <span class="dot-2"></span>
+        <span class="dot-3"></span>
+      </div>
+    </div>
   </body>
 </html>

@@ -595,11 +595,15 @@ async function fetchAPIData(endpoint) {
   const API_KEY = global.api.apiKey;
   const API_URL = global.api.apiUrl;
 
+  showSpinner();
+
   const response = await fetch(
     `${API_URL}${endpoint}?api_key=${API_KEY}&language=en-US`
   );
 
   const data = await response.json();
+
+  hideSpinner();
 
   return data;
 }
@@ -608,17 +612,15 @@ async function fetchAPIData(endpoint) {
 
 //
 
-// Show spinner
+function showSpinner() {
+  const overlay = document.getElementById('spinnerOverlay');
+  overlay.classList.remove('hidden');
+}
 
-// function showSpinner() {
-//   document.querySelector('.spinner').classList.add('show');
-// }
-
-// Hide Spinner
-
-// function hideSpinner() {
-//   document.querySelector('.spinner').classList.remove('show');
-// }
+function hideSpinner() {
+  const overlay = document.getElementById('spinnerOverlay');
+  overlay.classList.add('hidden');
+}
 
 // Highlight Active Link
 
@@ -680,6 +682,8 @@ function init() {
       break;
 
     case '/moviekritik-website/dist/watchlist.html':
+    case '/watchlist.html':
+    case '/watchlist':
       console.log('watchlist page');
       displayWatchlistPage();
       break;
