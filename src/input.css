@@ -65,11 +65,50 @@
 }
 
 .navbar-menu-item {
-  @apply rounded hover:bg-white hover:text-lightBlack leading-[1.8] cursor-pointer md:px-2 md:py-2 lg:p-2 transition-colors duration-300 ease-in-out;
+  @apply rounded hover:bg-white hover:text-lightBlack leading-[1.8] cursor-pointer sm:text-sm sm:px-2 md:py-2 lg:p-2 transition-colors duration-300 ease-in-out;
 }
 
 .navbar-menu-item a {
   @apply text-base lg:text-base font-bold;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  border-radius: 25px;
+  padding: 12px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  &:focus-within {
+    outline: 1px solid #fff;
+  }
+}
+
+.search-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 12px;
+  flex-shrink: 0;
+  color: #fff;
+  font-weight: 600;
+
+  &:hover {
+    color: var(--color-darkBlue);
+  }
+}
+
+.search-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.search-input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 400;
 }
 
 /* Drop Down Menu */
@@ -291,7 +330,8 @@ footer {
   padding: 20px;
 }
 
-.footer-btn {
+.footer-btn,
+.btn-primary {
   padding: 10px 20px;
   background-color: var(--col2);
   color: white;
@@ -299,10 +339,16 @@ footer {
   border-radius: 5px;
   cursor: pointer;
   font-size: 14px;
+  transition: background-color 0.3s ease-in-out;
 }
 
-.footer-btn:hover {
+.footer-btn:hover,
+.btn-primary:hover {
   background-color: var(--col1);
+}
+
+.btn-primary {
+  font-size: 16px;
 }
 
 /* Hamburger */

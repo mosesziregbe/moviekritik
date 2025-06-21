@@ -29,7 +29,7 @@
       referrerpolicy="no-referrer"
     />
     <link rel="stylesheet" href="./style.css" />
-    <script src="./js/script.js" defer></script>
+    <script type="module" src="./js/app.js" defer></script>
     <title>Movie Critic: Movies | Tv Shows | Ratings | Box Office</title>
   </head>
   <body
@@ -48,21 +48,28 @@
           </p>
         </div>
         <!-- Search Box -->
-        <div class="relative flex-1 mx-2 lg:mx-4 max-w-none lg:max-w-lg">
-          <i
-            class="fa-solid fa-magnifying-glass cursor-pointer absolute left-3 top-1/2 transform -translate-y-1/2 text-white text-lg hover:text-darkBlue transition-colors duration-300 ease-in-out"
-          ></i>
+        <div class="search-container bg-darkGray w-full md:w-72 lg:w-80">
+          <svg
+            class="search-icon cursor-pointer"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="3"
+          >
+            <circle cx="11" cy="11" r="8"></circle>
+            <path d="m21 21-4.35-4.35"></path>
+          </svg>
           <input
             type="text"
-            placeholder="Search"
-            class="w-full rounded-3xl text-white bg-darkGray p-2 pl-10 outline-black-50"
+            class="search-input w-full"
+            placeholder="Search movie"
           />
         </div>
 
         <!-- Hamburger -->
         <buttons
           id="menu-btn"
-          class="md:hidden relative z-50 w-8 h-8 flex flex-col justify-center items-center gap-y-1 p-2 bg-white rounded-lg cursor-pointer transition-all duration-300"
+          class="lg:hidden relative z-50 w-8 h-8 flex flex-col justify-center items-center gap-y-1 p-2 bg-white rounded-lg cursor-pointer transition-all duration-300"
         >
           <span
             class="block h-1 w-4 bg-black transition-transform origin-center"
@@ -74,7 +81,7 @@
         </buttons>
 
         <!-- Nav Menu Items -->
-        <div class="nav-menu hidden md:block">
+        <div class="nav-menu hidden lg:block">
           <ul class="navbar-menu-list">
             <li class="navbar-menu-item">
               <a href="#" class="navbar-menu-link">Movies</a>
