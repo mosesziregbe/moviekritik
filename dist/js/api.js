@@ -23,14 +23,14 @@ console.log(global.currentPage);
 // Only use this for development or very small projects.
 // You should store your key and make requests from a server
 
-export async function fetchAPIData(endpoint) {
+export async function fetchAPIData(endpoint, page = 1) {
   const API_KEY = global.api.apiKey;
   const API_URL = global.api.apiUrl;
 
   showSpinner();
 
   const response = await fetch(
-    `${API_URL}${endpoint}?api_key=${API_KEY}&language=en-US`
+    `${API_URL}${endpoint}?api_key=${API_KEY}&language=en-US&page=${page}`
   );
 
   const data = await response.json();

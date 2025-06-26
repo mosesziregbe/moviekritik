@@ -93,7 +93,7 @@ export function displayWatchlistMovieCard(movie, mediaType) {
                   ? getDate(movie.release_date)
                   : getDate(movie.first_air_date)
               } • ${movie.genres[0].name.split(' & ')[0]}</p>
-              <button id="movie-card-btn" class="movie-card-watchlist transition-all duration-300 watchlist-page" data-movie-id="${
+              <button id="movie-card-btn" class="watchlist-btn movie-card-watchlist transition-all duration-300 watchlist-page" data-movie-id="${
                 movie.id
               }" data-media-type=${mediaType} href=""
                 ><i class="fa-solid fa-trash mr-2"></i>

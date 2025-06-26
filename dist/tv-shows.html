@@ -29,7 +29,7 @@
       referrerpolicy="no-referrer"
     />
     <link rel="stylesheet" href="./style.css" />
-    <script src="./js/script.js" defer></script>
+    <script type="module" src="./js/app.js" defer></script>
     <title>Movie Critic: Movies | Tv Shows | Ratings | Box Office</title>
   </head>
   <body
@@ -132,7 +132,17 @@
         </div>
 
         <!-- Load More Button -->
-        <div class="mb-40"></div>
+        <div class="mb-40">
+          <div class="text-left mt-8">
+            <button
+              id="load-more-btn"
+              data-media-type="tv"
+              class="btn-primary font-semibold"
+            >
+              Load More Shows
+            </button>
+          </div>
+        </div>
       </section>
 
       <!-- Bottom Nav Bar  -->
@@ -250,5 +260,13 @@
         Movie Database (TMDB)
       </p>
     </footer>
+    <!-- Spinner Overlay -->
+    <div class="spinner-overlay hidden" id="spinnerOverlay">
+      <div class="dots-spinner">
+        <span class="dot-1"></span>
+        <span class="dot-2"></span>
+        <span class="dot-3"></span>
+      </div>
+    </div>
   </body>
 </html>

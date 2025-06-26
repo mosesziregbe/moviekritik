@@ -37,9 +37,17 @@
 }
 
 @layer components {
-  /* .btn-blue {
-    @apply bg-amber-900 py-2 px-4 rounded-xl font-bold hover:bg-orange-500;
-  } */
+  .btn-blue {
+    @apply bg-blue-500 hover:bg-blue-600 py-2.5 px-5 text-white rounded-lg cursor-pointer text-sm transition-colors duration-300 ease-in-out border-0;
+  }
+
+  .btn-transparent {
+    @apply bg-transparent py-1.5 px-3 text-black rounded-lg cursor-pointer text-sm border-1 border-black hover:scale-105 transition-transform duration-200 ease-in-out;
+  }
+
+  .btn-gray {
+    @apply bg-lightGray py-2 px-4 text-black rounded-2xl cursor-pointer text-sm font-normal border-0 hover:scale-105 transition-transform duration-200 ease-in-out;
+  }
 }
 
 /* .content-area {
@@ -71,6 +79,8 @@
 .navbar-menu-item a {
   @apply text-base lg:text-base font-bold;
 }
+
+/* Search Container */
 
 .search-container {
   display: flex;
@@ -186,6 +196,12 @@
 
 .movie-card-watchlist {
   @apply block w-full mt-auto text-[0.8rem] text-center border border-blue-200 rounded p-2 sm:text-sm sm:p-3 hover:scale-110 cursor-pointer transition-transform duration-300 ease-in-out;
+
+  /* iOS Safari fixes */
+  -webkit-appearance: none !important;
+  border: 1px solid #dbeafe !important; /* blue-200 hex value */
+  -webkit-border-radius: 0.25rem;
+  -webkit-transform: translateZ(0);
 }
 
 .movie-card-watchlist i {
@@ -193,34 +209,34 @@
 }
 
 /* Movie Card Button Default state */
-.movie-card-watchlist .fa-square-plus {
+.watchlist-btn .fa-square-plus {
   display: inline;
 }
 
-.movie-card-watchlist .fa-check {
+.watchlist-btn .fa-check {
   display: none;
 }
 
-.movie-card-watchlist .not-watchlisted {
+.watchlist-btn .not-watchlisted {
   display: inline;
 }
 
-.movie-card-watchlist .in-watchlist {
+.watchlist-btn .in-watchlist {
   display: none;
 }
 
 /* Active State -- In Watchlist */
 
-.movie-card-watchlist.active .fa-square-plus {
+.watchlist-btn.active .fa-square-plus {
   display: none;
 }
-.movie-card-watchlist.active .fa-check {
+.watchlist-btn.active .fa-check {
   display: inline;
 }
-.movie-card-watchlist.active .not-watchlisted {
+.watchlist-btn.active .not-watchlisted {
   display: none;
 }
-.movie-card-watchlist.active .in-watchlist {
+.watchlist-btn.active .in-watchlist {
   display: inline;
 }
 
@@ -376,4 +392,66 @@ footer {
 .bom-row {
   color: #374151 !important;
   padding: 6px 8px;
+}
+
+/* Movie Details */
+
+.movie-poster {
+  @apply mx-auto object-cover md:h-full;
+}
+
+.movie-poster img {
+  @apply rounded-2xl min-w-75 h-96;
+}
+
+.movie-top-info {
+  @apply text-center font-poppins mb-4;
+}
+
+.rating-and-watchlist {
+  @apply flex justify-between items-center;
+}
+
+.rating-text {
+  @apply text-2xl font-semibold;
+}
+
+.review-count-text {
+  @apply text-xs text-blue-400 font-semibold;
+}
+
+.movie-info-details {
+  @apply mx-auto bg-lightGray p-5 rounded-2xl flex flex-col gap-y-5 flex-2/3;
+}
+
+.item-wrapper {
+  @apply flex items-center justify-start gap-x-10 border-t-1 border-gray-300 pt-2.5 mb-10;
+}
+
+.item-wrapper:nth-child(1) {
+  border-top: none;
+}
+
+dt {
+  @apply w-40 text-sm font-light flex-shrink-0 md:w-48;
+}
+
+dd {
+  @apply tracking-tight text-lightBlack;
+}
+
+.revenue-success {
+  color: #059669;
+}
+.revenue-good {
+  color: #10b981;
+}
+.revenue-ok {
+  color: #34d399;
+}
+.revenue-break-even {
+  color: #eab308;
+}
+.revenue-loss {
+  color: #dc2626;
 }

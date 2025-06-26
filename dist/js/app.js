@@ -1,21 +1,35 @@
 import { fetchAPIData, global, getGenreName } from './api.js';
-import { displayAllPopularShows, displayStreamingShows } from './shows.js';
+import {
+  displayAllPopularShows,
+  displayStreamingShows,
+  handleLoadMoreShows,
+} from './shows.js';
 import { displayWatchlistPage, checkWatchlistPage } from './watchlist.js';
 import {
   displayTrendingMoviesToday,
   displayAllPopularMovies,
+  handleLoadMoreMovies,
   displayPopularMovies,
+  displayMovieDetails,
 } from './movies.js';
+
+import {
+  displayAllTrendingDay,
+  displayAllTrendingWeek,
+  handleLoadMoreTrending,
+} from './trending.js';
+
+//
+//
 
 // Event listener for watchlist button
 
 document.addEventListener('click', function (e) {
-  if (e.target.closest('.movie-card-watchlist')) {
-    const movieId = e.target.closest('.movie-card-watchlist').dataset.movieId;
-    const mediaType = e.target.closest('.movie-card-watchlist').dataset
-      .mediaType;
+  if (e.target.closest('.watchlist-btn')) {
+    const movieId = e.target.closest('.watchlist-btn').dataset.movieId;
+    const mediaType = e.target.closest('.watchlist-btn').dataset.mediaType;
 
-    const button = e.target.closest('.movie-card-watchlist');
+    const button = e.target.closest('.watchlist-btn');
 
     const movieData = {
       movieId: button.dataset.movieId,
@@ -98,10 +112,25 @@ export function initializeWatchlistButtons() {
   });
 }
 
-//
-//
+// Event Listener for Load More Button - Movies All, Shows All
+const loadMoreButton = document.getElementById('load-more-btn');
 
-// Add some interactive behavior
+if (loadMoreButton) {
+  loadMoreButton.addEventListener('click', function () {
+    const mediaType = this.dataset.mediaType;
+    const timeWindow = this.dataset.timeWindow;
+
+    if (timeWindow) {
+      handleLoadMoreTrending(timeWindow);
+    } else if (mediaType === 'movie') {
+      handleLoadMoreMovies();
+    } else if (mediaType === 'tv') {
+      handleLoadMoreShows();
+    }
+  });
+}
+
+// Search button Interactive behavior - All Pages
 const searchInputs = document.querySelectorAll('.search-input');
 
 searchInputs.forEach((input) => {
@@ -115,7 +144,8 @@ searchInputs.forEach((input) => {
   });
 });
 
-// 7. TRENDING MOVIES TODAY
+//
+//
 
 // Highlight Active Link
 
@@ -163,6 +193,16 @@ function init() {
       console.log('shows page');
       displayAllPopularShows();
       break;
+
+    case '/moviekritik-website/dist/trending-today.html':
+      console.log('trending today page');
+      displayAllTrendingDay();
+      break;
+
+    case '/moviekritik-website/dist/movie-details.html':
+      console.log('movie details page');
+      displayMovieDetails();
+      break;
   }
 }
 
@@ -171,23 +211,3 @@ document.addEventListener('DOMContentLoaded', function () {
   // Initialize the app
   init();
 });
-
-// Navigation setup function
-// function setupNavigation() {
-//   const btn = document.getElementById('menu-btn');
-//   const mobileMenu = document.querySelector('.mobile-menu-items');
-
-//   btn.addEventListener('click', function () {
-//     btn.classList.toggle('open');
-//     mobileMenu.classList.toggle('active');
-//   });
-
-//   // Scroll effect for navbar
-//   window.addEventListener('scroll', function () {
-//     if (window.scrollY > 0) {
-//       navbar.classList.add('navbar-scroll');
-//     } else {
-//       navbar.classList.remove('navbar-scroll');
-//     }
-//   });
-// }
