@@ -412,11 +412,11 @@ footer {
   @apply text-2xl font-bold p-4 md:text-3xl;
 }
 .movie-top-info .quick-info {
-  @apply text-xs font-medium pb-1.5 md:text-sm;
+  @apply text-sm font-medium pb-1.5 md:text-sm;
 }
 
 .movie-top-info .tagline {
-  @apply text-xs font-thin pb-1.5 md:text-sm;
+  @apply text-sm font-thin pb-1.5 md:text-sm;
 }
 
 .rating-and-watchlist {

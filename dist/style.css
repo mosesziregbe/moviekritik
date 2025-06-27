@@ -1545,8 +1545,8 @@ footer {
 }
 .movie-top-info .quick-info {
   padding-bottom: calc(var(--spacing) * 1.5);
-  font-size: var(--text-xs);
-  line-height: var(--tw-leading, var(--text-xs--line-height));
+  font-size: var(--text-sm);
+  line-height: var(--tw-leading, var(--text-sm--line-height));
   --tw-font-weight: var(--font-weight-medium);
   font-weight: var(--font-weight-medium);
   @media (width >= 48rem) {
@@ -1556,8 +1556,8 @@ footer {
 }
 .movie-top-info .tagline {
   padding-bottom: calc(var(--spacing) * 1.5);
-  font-size: var(--text-xs);
-  line-height: var(--tw-leading, var(--text-xs--line-height));
+  font-size: var(--text-sm);
+  line-height: var(--tw-leading, var(--text-sm--line-height));
   --tw-font-weight: var(--font-weight-thin);
   font-weight: var(--font-weight-thin);
   @media (width >= 48rem) {
