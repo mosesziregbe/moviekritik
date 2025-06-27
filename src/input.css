@@ -408,6 +408,17 @@ footer {
   @apply text-center font-poppins mb-4;
 }
 
+.movie-top-info .movie-title {
+  @apply text-2xl font-bold p-4 md:text-3xl;
+}
+.movie-top-info .quick-info {
+  @apply text-xs font-medium pb-1.5 md:text-sm;
+}
+
+.movie-top-info .tagline {
+  @apply text-xs font-thin pb-1.5 md:text-sm;
+}
+
 .rating-and-watchlist {
   @apply flex justify-between items-center;
 }

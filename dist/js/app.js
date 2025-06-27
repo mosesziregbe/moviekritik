@@ -170,6 +170,7 @@ function highlightActiveLink() {
 // Init App
 function init() {
   switch (global.currentPage) {
+    // Homepage
     case '/':
     case '/moviekritik-website/dist/index.html':
       displayTrendingMoviesToday();
@@ -177,6 +178,7 @@ function init() {
       displayStreamingShows();
       break;
 
+    // Watchlist page
     case '/moviekritik-website/dist/watchlist.html':
     case '/watchlist.html':
     case '/watchlist':
@@ -184,22 +186,28 @@ function init() {
       displayWatchlistPage();
       break;
 
+    // Popular Movies Page
     case '/moviekritik-website/dist/movies.html':
       console.log('movies page');
       displayAllPopularMovies();
       break;
 
+    // Popular TV Shows Page
     case '/moviekritik-website/dist/tv-shows.html':
       console.log('shows page');
       displayAllPopularShows();
       break;
 
+    // Trending (Day/Week) Pages
     case '/moviekritik-website/dist/trending-today.html':
       console.log('trending today page');
       displayAllTrendingDay();
       break;
 
+    // Movie Details page
+
     case '/moviekritik-website/dist/movie-details.html':
+    case '/movie-details.html':
       console.log('movie details page');
       displayMovieDetails();
       break;

@@ -300,6 +300,8 @@ export async function displayMovieDetails() {
     .join(',  ');
 
   updateMovieTitle(movie.title);
+  updateMovieQuickInfo(movie.runtime, movie.genres);
+  updateMovieTagline(movie.tagline);
   updateMovieRating(movie.vote_average, movie.vote_count);
   updateMoviePoster(
     `https://image.tmdb.org/t/p/w500${movie.poster_path}`,
@@ -387,7 +389,23 @@ export async function displayMovieDetails() {
 // Helper functions for movie details
 
 function updateMovieTitle(title) {
-  document.querySelector('.movie-top-info h2').textContent = title;
+  document.querySelector('.movie-top-info .movie-title').textContent = title;
+}
+
+function updateMovieQuickInfo(runtime, genres) {
+  const element = document.querySelector('.movie-top-info .quick-info');
+  if (!element) return;
+
+  const hours = Math.floor(runtime / 60);
+  const minutes = runtime % 60;
+  const time = hours ? `${hours}h ${minutes}m` : `${minutes}m`;
+  const genreList = genres.map((g) => g.name || g).join('/');
+
+  element.textContent = `${time}, ${genreList}`;
+}
+
+function updateMovieTagline(tagline) {
+  document.querySelector('.movie-top-info .tagline').textContent = tagline;
 }
 
 function updateMovieRating(rating, reviewCount) {
