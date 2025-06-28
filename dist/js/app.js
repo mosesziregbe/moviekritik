@@ -11,6 +11,7 @@ import {
   handleLoadMoreMovies,
   displayPopularMovies,
   displayMovieDetails,
+  displayShowDetails,
 } from './movies.js';
 
 import {
@@ -18,6 +19,7 @@ import {
   displayAllTrendingWeek,
   handleLoadMoreTrending,
 } from './trending.js';
+import { initializeSearch, search } from './search.js';
 
 //
 //
@@ -147,6 +149,9 @@ searchInputs.forEach((input) => {
 //
 //
 
+//
+//
+
 // Highlight Active Link
 
 function highlightActiveLink() {
@@ -169,6 +174,8 @@ function highlightActiveLink() {
 
 // Init App
 function init() {
+  initializeSearch();
+
   switch (global.currentPage) {
     // Homepage
     case '/':
@@ -210,6 +217,22 @@ function init() {
     case '/movie-details.html':
       console.log('movie details page');
       displayMovieDetails();
+      break;
+
+    // TV Details page
+
+    case '/moviekritik-website/dist/tv-details.html':
+    case '/tv-details.html':
+      console.log('tv details page');
+      displayShowDetails();
+      break;
+
+    // Search page
+
+    case '/moviekritik-website/dist/search.html':
+    case '/search.html':
+      console.log('search page');
+      search();
       break;
   }
 }

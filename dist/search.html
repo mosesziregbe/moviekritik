@@ -48,23 +48,26 @@
           </p>
         </div>
         <!-- Search Box -->
-        <div class="search-container bg-darkGray w-full md:w-72 lg:w-80">
-          <svg
-            class="search-icon cursor-pointer"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="3"
-          >
-            <circle cx="11" cy="11" r="8"></circle>
-            <path d="m21 21-4.35-4.35"></path>
-          </svg>
-          <input
-            type="text"
-            class="search-input w-full"
-            placeholder="Search movie"
-          />
-        </div>
+        <form action="search.html" method="GET">
+          <div class="search-container bg-darkGray w-full md:w-72 lg:w-80">
+            <svg
+              class="search-icon cursor-pointer"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="3"
+            >
+              <circle cx="11" cy="11" r="8"></circle>
+              <path d="m21 21-4.35-4.35"></path>
+            </svg>
+            <input
+              type="text"
+              class="search-input w-full"
+              name="search-term"
+              placeholder="Search movie"
+            />
+          </div>
+        </form>
 
         <!-- Hamburger -->
         <buttons
@@ -111,127 +114,40 @@
         </div>
       </div>
     </nav>
-    <main
-      class="container mx-auto bg-white md:px-4 lg:w-container font-poppins"
-    >
-      <!-- Movie Top Section -->
-      <section class="movie-top p-4 md:p-2">
-        <!-- Flex Container for movie top section -->
-        <div class="mx-auto my-3 flex flex-col items-center gap-y-4">
-          <div class="self-start pb-6 md:pb-8 md:pt-4">
-            <button class="btn-gray">Back To Movies</button>
-          </div>
-          <div
-            class="flex flex-col items-center md:flex md:flex-row md:gap-x-8"
+    <main class="container mx-auto bg-white md:px-4 lg:w-container">
+      <!-- All Movies/Shows Section -->
+      <section class="trending-day-all p-4 md:p-2">
+        <!-- Flex container for Title and Link -->
+        <div class="flex justify-between items-center mt-8">
+          <h2
+            class="text-2xl font-semibold leading-[1.6] tracking-normal text-lightBlack font-passion"
           >
-            <!-- Movie Poster -->
-            <div class="movie-poster">
-              <img src="" alt="" />
-            </div>
-            <!-- Movie Top Info Text -->
-            <div class="md:self-end">
-              <div class="movie-top-info">
-                <h2 class="movie-title"></h2>
-                <h3 class="quick-info"></h3>
-                <p class="tagline"></p>
-              </div>
-              <!-- Movie Synopsis and More to Watch  -->
-              <div class="flex gap-x-5">
-                <!-- Movie Synopsis -->
-                <div
-                  class="mx-auto bg-lightGray p-5 rounded-2xl flex flex-col gap-y-5"
-                >
-                  <!-- Movie Rating and watchlist button -->
-                  <div class="rating-and-watchlist">
-                    <div class="ratings-wrapper flex gap-x-4">
-                      <img
-                        class="w-12 h-12"
-                        src="images/rating_aud.png"
-                        alt=""
-                      />
-                      <div class="flex flex-col">
-                        <span class="rating-text"></span>
-                        <span class="review-count-text"></span>
-                      </div>
-                    </div>
-                    <div class="btn-container"></div>
-                  </div>
-                  <!-- Synposis Text -->
-                  <p class="synopsis-text line-clamp-5"></p>
-                  <div class="self-start pt-4">
-                    <button class="btn-blue" id="movie-homepage">
-                      <a href="">Visit Movie Homepage</a>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
+            Search Results for : "search term"
+          </h2>
+        </div>
+        <p class="text-lightBlack pt-1 pb-5">
+          Trending movies and series right now
+        </p>
+        <!-- Flex Container for Searh Results Movies and Shows -->
+        <div
+          id="search-results"
+          class="grid grid-cols-2 items-center gap-y-10 gap-x-8 md:grid-cols-3 lg:grid-cols-5"
+        >
+          <!-- Movie Cards -->
+        </div>
+
+        <!-- Load More Button -->
+        <div class="mb-30">
+          <div class="text-left mt-8">
+            <button
+              id="load-more-btn"
+              data-time-window="day"
+              class="btn-primary font-semibold"
+            >
+              Load More
+            </button>
           </div>
         </div>
-      </section>
-      <!-- Divider -->
-      <div class="border-b-2 border-lightGray p-4 md:p-6"></div>
-
-      <section class="movie-details-bottom flex gap-x-5">
-        <!-- Movie Info Section -->
-        <section class="p-4 py-3 pb-20 md:p-2 md:pb-20 flex-2/3">
-          <div class="movie-info-wrapper">
-            <h3
-              class="text-lg font-semibold p-4 md:text-2xl md:uppercase md:p-8 font-poppins"
-            >
-              Movie Info
-            </h3>
-            <!-- Movie Info and Aside -->
-            <div class="flex gap-x-8">
-              <!-- Movie Info Wrapper -->
-              <div class="movie-info-details font-poppins font-normal">
-                <!-- Movie Details Goes Here -->
-              </div>
-              <aside class="hidden w-72 lg:block">
-                <div class="bg-lightGray p-5 rounded-2xl flex flex-col gap-y-3">
-                  <h3 class="font-semibold text-lg font-poppins">
-                    More To Watch
-                  </h3>
-                  <div>
-                    <h4
-                      class="text-xs text-white font-semibold inline-block rounded-lg bg-[#2d3748] p-2"
-                    >
-                      Trending Movies
-                    </h4>
-                  </div>
-                  <div class="border-t-1 border-gray-300 text-sm">
-                    <ul>
-                      <li class="flex justify-between pt-4">
-                        <span>Straw</span><span class="font-medium">80%</span>
-                      </li>
-                      <li class="flex justify-between pt-4">
-                        <span>How to train your dragon</span
-                        ><span class="font-medium">70%</span>
-                      </li>
-                      <li class="flex justify-between pt-4">
-                        <span>Elio</span><span class="font-medium">80%</span>
-                      </li>
-                      <li class="flex justify-between pt-4">
-                        <span>Lilo & Stitch</span
-                        ><span class="font-medium">55%</span>
-                      </li>
-                      <li class="flex justify-between pt-4">
-                        <span>F1: The Movie</span
-                        ><span class="font-medium">80%</span>
-                      </li>
-                      <li class="flex justify-between pt-4">
-                        <span>Mission: Impossible - The Final Reckoning</span
-                        ><span class="font-medium">80%</span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </aside>
-            </div>
-          </div>
-        </section>
-
-        <!-- Aside -->
       </section>
 
       <!-- Bottom Nav Bar  -->
@@ -321,7 +237,7 @@
             Get weekly recommendations and never miss what's trending!
           </p>
           <div class="pb-1.5">
-            <button href="" class="footer-btn">Join the newsletter</button>
+            <a href="" class="footer-btn">Join the newsletter</a>
           </div>
         </div>
         <!-- Socials -->

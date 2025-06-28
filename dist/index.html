@@ -48,7 +48,7 @@
           </p>
         </div>
         <!-- Search Box -->
-        <div class="search-container bg-darkGray w-full md:w-72 lg:w-80">
+        <div class="search-container bg-darkGray w-full md:w-72 lg:w-90">
           <svg
             class="search-icon cursor-pointer"
             viewBox="0 0 24 24"
@@ -61,9 +61,13 @@
           </svg>
           <input
             type="text"
-            class="search-input w-full"
-            placeholder="Search movie"
+            class="search-input w-full text-xs sm:text-base"
+            placeholder="Search ..."
           />
+          <select class="search-type-select" aria-label="Search type">
+            <option value="movie">Movies</option>
+            <option value="tv">TV Shows</option>
+          </select>
         </div>
 
         <!-- Hamburger -->

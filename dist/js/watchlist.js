@@ -58,11 +58,12 @@ export async function displayWatchlistPage() {
 
 export function displayWatchlistMovieCard(movie, mediaType) {
   console.log(movie);
+  console.log(mediaType);
   const div = document.createElement('div');
   div.classList.add('movie-card');
 
   div.innerHTML = `<div class="relative">
-              <a href="${movie.media_type}-details.html?id=${movie.id}">
+              <a href="${mediaType}-details.html?id=${movie.id}">
             ${
               movie.poster_path
                 ? `<img

@@ -86,18 +86,41 @@
   display: flex;
   align-items: center;
   border-radius: 25px;
-  padding: 12px 20px;
+  padding: 12px;
   border: 1px solid rgba(255, 255, 255, 0.2);
+  gap: 8px;
 
   &:focus-within {
     outline: 1px solid #fff;
   }
 }
 
+.search-type-select {
+  background-color: #2f2f2f; /* match container bg */
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 6px 12px;
+  font-size: 14px;
+  cursor: pointer;
+  flex-shrink: 0;
+  width: 100px;
+  /* Remove default arrow */
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  position: relative;
+}
+
+.search-type-select:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--color-darkBlue);
+}
+
 .search-icon {
   width: 20px;
   height: 20px;
-  margin-right: 12px;
+  margin-right: 6px;
   flex-shrink: 0;
   color: #fff;
   font-weight: 600;
@@ -112,8 +135,8 @@
   border: none;
   outline: none;
   color: #fff;
-  font-size: 16px;
   font-weight: 400;
+  background: transparent;
 }
 
 .search-input::placeholder {
@@ -416,7 +439,7 @@ footer {
 }
 
 .movie-top-info .tagline {
-  @apply text-sm font-thin pb-1.5 md:text-sm;
+  @apply max-w-2xs mx-auto text-sm font-thin pb-1.5 md:text-sm;
 }
 
 .rating-and-watchlist {
@@ -451,7 +474,8 @@ dd {
   @apply tracking-tight text-lightBlack;
 }
 
-.revenue-success {
+.revenue-success,
+.rating-top {
   color: #059669;
 }
 .revenue-good {
@@ -460,9 +484,18 @@ dd {
 .revenue-ok {
   color: #34d399;
 }
-.revenue-break-even {
+.revenue-break-even,
+.rating-average {
   color: #eab308;
 }
 .revenue-loss {
   color: #dc2626;
+}
+
+.rating-low {
+  color: oklch(70.4% 0.191 22.216);
+}
+
+.rating-na {
+  color: oklch(70.7% 0.022 261.325);
 }

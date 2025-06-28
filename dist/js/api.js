@@ -47,6 +47,31 @@ export async function getGenreName(type, genreId) {
   return genre ? genre.name : 'Unknown';
 }
 
+// https://api.themoviedb.org/3/search/multi?query=havoc&include_adult=false&language=en-US&page=1
+
+// Make Request to Search
+
+export async function searchAPIData() {
+  const API_KEY = global.api.apiKey;
+  const API_URL = global.api.apiUrl;
+
+  showSpinner();
+
+  // const response = await fetch(
+  //   `${API_URL}search/multi?api_key=${API_KEY}&language=en-US&query=${global.search.term}&page=${global.search.page}`
+  // );
+
+  const response = await fetch(
+    `${API_URL}search/multi?api_key=${API_KEY}&query=${global.search.term}&include_adult=true&language=en-US&page=${global.search.page}`
+  );
+
+  const data = await response.json();
+
+  hideSpinner();
+
+  return data;
+}
+
 // Show spinner
 
 function showSpinner() {

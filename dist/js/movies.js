@@ -2,7 +2,6 @@ import { fetchAPIData, getGenreName } from './api.js';
 import {
   getDate,
   displayRatingsBackground,
-  displayBackgroundImage,
   addCommasToNumber,
 } from './utils.js';
 import { initializeWatchlistButtons } from './app.js';
@@ -76,9 +75,7 @@ export async function displayTrendingMoviesToday() {
     displayRatingsBackground(trendingTodayEl);
   });
 
-  setTimeout(() => {
-    initializeWatchlistButtons();
-  }, 1000);
+  initializeWatchlistButtons();
 }
 
 // 2. Display 10 most popular Movies
@@ -303,6 +300,7 @@ export async function displayMovieDetails() {
   updateMovieQuickInfo(movie.runtime, movie.genres);
   updateMovieTagline(movie.tagline);
   updateMovieRating(movie.vote_average, movie.vote_count);
+  getVoteClass(movie.vote_average);
   updateMoviePoster(
     `https://image.tmdb.org/t/p/w500${movie.poster_path}`,
     movie.title
@@ -399,9 +397,26 @@ function updateMovieQuickInfo(runtime, genres) {
   const hours = Math.floor(runtime / 60);
   const minutes = runtime % 60;
   const time = hours ? `${hours}h ${minutes}m` : `${minutes}m`;
-  const genreList = genres.map((g) => g.name || g).join('/');
+  const genreList = genres
+    .slice(0, 2)
+    .map((g) => g.name || g)
+    .join('/');
 
   element.textContent = `${time}, ${genreList}`;
+}
+
+function updateShowQuickInfo(date, genres) {
+  const element = document.querySelector('.movie-top-info .quick-info');
+  if (!element) return;
+
+  const genreList = genres
+    .slice(0, 2)
+    .map((g) => g.name || g)
+    .join('/');
+
+  const show_release_date = new Date(date);
+
+  element.textContent = `${show_release_date.getFullYear()}, ${genreList}`;
 }
 
 function updateMovieTagline(tagline) {
@@ -427,6 +442,11 @@ function updateMoviePoster(url, title) {
   img.alt = `${title}`;
 }
 
+function updateMovieNetwork(url) {
+  const logo = document.querySelector('.network-image img');
+  logo.src = url;
+}
+
 function updateMovieSynopsis(text) {
   document.querySelector('.synopsis-text').textContent = text;
 }
@@ -449,6 +469,22 @@ function getRevenueColor(budget, revenue) {
   return 'revenue-loss';
 }
 
+function getVoteClass(rating) {
+  const ratingClassEl = document.querySelector('.rating-text');
+  if (!ratingClassEl) return;
+
+  const voteClass =
+    rating === 'NA' || rating === 0 || !rating
+      ? 'rating-na'
+      : parseFloat(rating) >= 7.5
+      ? 'rating-top'
+      : parseFloat(rating) >= 6
+      ? 'rating-average'
+      : 'rating-low';
+
+  ratingClassEl.classList.add(voteClass);
+}
+
 function createWatchlistButton(id, mediaType) {
   return `
     <button
@@ -464,4 +500,117 @@ function createWatchlistButton(id, mediaType) {
       <span class="in-watchlist">In Watchlist</span>
     </button>
   `;
+}
+
+// DISPLAY SHOW DETAILS
+
+export async function displayShowDetails() {
+  const showId = window.location.search.split('=')[1];
+  // console.log(movieId);
+
+  const show = await fetchAPIData(`tv/${showId}`);
+
+  console.log(show);
+
+  const { cast } = await fetchAPIData(`tv/${showId}/credits`);
+
+  const firstTenCastNames = cast
+    .slice(0, 10)
+    .map((actor) => actor.name)
+    .join(',  ');
+
+  updateMovieTitle(show.name);
+  updateShowQuickInfo(show.first_air_date, show.genres);
+  updateMovieTagline(show.tagline);
+  updateMovieRating(show.vote_average, show.vote_count);
+  getVoteClass(show.vote_average);
+  updateMoviePoster(
+    `https://image.tmdb.org/t/p/w500${show.poster_path}`,
+    show.title
+  );
+  updateMovieLink(show.homepage);
+  updateMovieSynopsis(show.overview);
+
+  // Update the remaining movie details
+  const div = document.createElement('div');
+
+  div.classList.add('movie-info-items');
+
+  div.innerHTML = `
+  <dl>
+                    <div class="item-wrapper">
+                      <dt>First Air Date</dt>
+                      <dd>${getDate(show.first_air_date)}</dd>
+                    </div>
+                    <div class="item-wrapper"><dt>Genre</dt>
+                      <dd>${show.genres
+                        .map((genre) => genre.name)
+                        .join(', ')}</dd>
+                    </div>
+                    <div class="item-wrapper">
+                      <dt>Cast</dt>
+                      <dd>${firstTenCastNames}</dd>
+                    </div>
+                    <div class="item-wrapper">
+                      <dt>Network</dt>
+                      <dd>${show.networks[0].name}<span><img alt="${
+    show.networks[0].name
+  }" src=https://image.tmdb.org/t/p/w500${
+    show.networks[0].logo_path
+  } class="w-12 h-4 inline-block ml-3"/></span></dd>
+                    </div>
+                    <div class="item-wrapper">
+                      <dt>Number of Seasons</dt>
+                      <dd>${show.number_of_seasons}</dd>
+                    </div>
+                    <div class="item-wrapper">
+                      <dt>Number of Episodes (Total)</dt>
+                      <dd>${show.number_of_episodes}</dd>
+                    </div>
+                    <div class="item-wrapper">
+                      <dt>Last Episode to Air</dt>
+                      <dd>${show.last_episode_to_air.name}</dd>
+                    </div>
+                    <div class="item-wrapper">
+                      <dt>Last Air Date</dt>
+                      <dd>${getDate(show.last_air_date)}</dd>
+                    </div>
+                    <div class="item-wrapper">
+                      <dt>Status</dt>
+                      <dd>${show.status}</dd>
+                    </div>
+                    <div class="item-wrapper">
+                      <dt>Production ${
+                        show.production_countries.length === 1
+                          ? 'Country'
+                          : 'Countries'
+                      }</dt>
+                      <dd>${show.production_countries
+                        .map((country) => `<span>${country.name}</span>`)
+                        .join(', ')}</dd>
+                    </div>
+                    <div class="item-wrapper">
+                      <dt>Production ${
+                        show.production_companies.length === 1
+                          ? 'Company'
+                          : 'Companies'
+                      }</dt>
+                      <dd>${show.production_companies
+                        .map((company) => `<span>${company.name}</span>`)
+                        .join(', ')}</dd>
+                    </div>
+                  </dl>
+  `;
+
+  document.querySelector('.movie-info-details').appendChild(div);
+
+  const btnContainer = document.querySelector('.btn-container');
+  if (btnContainer) {
+    btnContainer.innerHTML = createWatchlistButton(
+      show.id,
+      show.media_type || 'tv'
+    );
+  }
+
+  initializeWatchlistButtons();
 }
