@@ -137,7 +137,7 @@ const searchInputs = document.querySelectorAll('.search-input');
 
 searchInputs.forEach((input) => {
   input.addEventListener('focus', function () {
-    this.parentElement.style.transform = 'scale(1.05)';
+    this.parentElement.style.transform = 'scale(1.02)';
     this.parentElement.style.transition = 'transform 0.2s ease';
   });
 
