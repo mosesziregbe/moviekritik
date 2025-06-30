@@ -32,20 +32,20 @@ const closeSearch = document.getElementById('closeSearch');
 // Open search overlay
 mobileSearchBtn.addEventListener('click', () => {
   searchOverlay.classList.add('active');
-  document.body.style.overflow = 'hidden';
+  // document.body.style.overflow = 'hidden';
 });
 
 // Close search overlay
 closeSearch.addEventListener('click', () => {
   searchOverlay.classList.remove('active');
-  document.body.style.overflow = '';
+  // document.body.style.overflow = '';
 });
 
 // Close with Escape key
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') {
     searchOverlay.classList.remove('active');
-    document.body.style.overflow = '';
+    // document.body.style.overflow = '';
   }
 });
 
@@ -53,7 +53,7 @@ document.addEventListener('keydown', (e) => {
 window.addEventListener('resize', () => {
   if (window.innerWidth >= 640) {
     searchOverlay.classList.remove('active');
-    document.body.style.overflow = '';
+    // document.body.style.overflow = '';
   }
 });
 
