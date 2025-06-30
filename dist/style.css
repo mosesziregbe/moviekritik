@@ -15,9 +15,11 @@
     --color-blue-500: oklch(0.623 0.214 259.815);
     --color-blue-600: oklch(0.546 0.245 262.881);
     --color-blue-950: oklch(0.282 0.091 267.935);
+    --color-gray-100: oklch(0.967 0.003 264.542);
     --color-gray-200: oklch(0.928 0.006 264.531);
     --color-gray-300: oklch(0.872 0.01 258.338);
     --color-gray-400: oklch(0.707 0.022 261.325);
+    --color-gray-600: oklch(0.446 0.03 256.802);
     --color-black: #000;
     --color-white: #fff;
     --spacing: 0.25rem;
@@ -208,6 +210,9 @@
   }
 }
 @layer utilities {
+  .visible {
+    visibility: visible;
+  }
   .absolute {
     position: absolute;
   }
@@ -268,6 +273,9 @@
   .mb-0 {
     margin-bottom: calc(var(--spacing) * 0);
   }
+  .mb-4 {
+    margin-bottom: calc(var(--spacing) * 4);
+  }
   .mb-5 {
     margin-bottom: calc(var(--spacing) * 5);
   }
@@ -310,6 +318,9 @@
   .h-4 {
     height: calc(var(--spacing) * 4);
   }
+  .h-6 {
+    height: calc(var(--spacing) * 6);
+  }
   .h-8 {
     height: calc(var(--spacing) * 8);
   }
@@ -318,6 +329,9 @@
   }
   .w-4 {
     width: calc(var(--spacing) * 4);
+  }
+  .w-6 {
+    width: calc(var(--spacing) * 6);
   }
   .w-8 {
     width: calc(var(--spacing) * 8);
@@ -349,6 +363,9 @@
   .cursor-pointer {
     cursor: pointer;
   }
+  .resize {
+    resize: both;
+  }
   .grid-cols-1 {
     grid-template-columns: repeat(1, minmax(0, 1fr));
   }
@@ -378,6 +395,9 @@
   }
   .gap-x-2 {
     column-gap: calc(var(--spacing) * 2);
+  }
+  .gap-x-2\.5 {
+    column-gap: calc(var(--spacing) * 2.5);
   }
   .gap-x-4 {
     column-gap: calc(var(--spacing) * 4);
@@ -421,6 +441,10 @@
   .rounded-lg {
     border-radius: var(--radius-lg);
   }
+  .border {
+    border-style: var(--tw-border-style);
+    border-width: 1px;
+  }
   .border-2 {
     border-style: var(--tw-border-style);
     border-width: 2px;
@@ -458,6 +482,9 @@
   }
   .bg-darkGray {
     background-color: var(--color-darkGray);
+  }
+  .bg-gray-100 {
+    background-color: var(--color-gray-100);
   }
   .bg-gray-200 {
     background-color: var(--color-gray-200);
@@ -524,6 +551,9 @@
   }
   .py-3 {
     padding-block: calc(var(--spacing) * 3);
+  }
+  .py-8 {
+    padding-block: calc(var(--spacing) * 8);
   }
   .pt-0 {
     padding-top: calc(var(--spacing) * 0);
@@ -658,6 +688,9 @@
   .text-gray-400 {
     color: var(--color-gray-400);
   }
+  .text-gray-600 {
+    color: var(--color-gray-600);
+  }
   .text-lightBlack {
     color: var(--color-lightBlack);
   }
@@ -675,6 +708,10 @@
   }
   .uppercase {
     text-transform: uppercase;
+  }
+  .outline {
+    outline-style: var(--tw-outline-style);
+    outline-width: 1px;
   }
   .blur {
     --tw-blur: blur(8px);
@@ -725,6 +762,16 @@
       @media (hover: hover) {
         opacity: 90%;
       }
+    }
+  }
+  .sm\:flex {
+    @media (width >= 40rem) {
+      display: flex;
+    }
+  }
+  .sm\:hidden {
+    @media (width >= 40rem) {
+      display: none;
     }
   }
   .sm\:w-full {
@@ -1139,7 +1186,6 @@
   }
 }
 .search-container {
-  display: flex;
   align-items: center;
   border-radius: 25px;
   padding: 12px;
@@ -1190,6 +1236,55 @@
 .search-input::placeholder {
   color: rgba(255, 255, 255, 0.5);
   font-weight: 400;
+}
+.search-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  transform: translateY(-100%);
+  transition: transform 0.3s ease-in-out;
+}
+.search-overlay.active {
+  transform: translateY(0);
+}
+.search-overlay-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 0 auto;
+}
+.close-search {
+  color: white;
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+}
+.mobile-search-container {
+  align-items: center;
+  border-radius: 25px;
+  padding: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  gap: 8px;
+  &:focus-within {
+    outline: 1px solid #fff;
+  }
+}
+.mobile-search-container .search-type-select {
+  background-color: #2f2f2f;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 1px 12px;
+  font-size: 14px;
+  cursor: pointer;
+  flex-shrink: 0;
+  width: 100px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  position: relative;
 }
 .menu-item {
   position: relative;
@@ -1698,6 +1793,11 @@ dd {
 .rating-na {
   color: oklch(70.7% 0.022 261.325);
 }
+@media (min-width: 640px) {
+  .search-overlay {
+    display: none !important;
+  }
+}
 @property --tw-rotate-x {
   syntax: "*";
   inherits: false;
@@ -1739,6 +1839,11 @@ dd {
 @property --tw-tracking {
   syntax: "*";
   inherits: false;
+}
+@property --tw-outline-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
 }
 @property --tw-blur {
   syntax: "*";

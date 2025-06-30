@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Navigation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              lightRed: '#ff6b6b',
+              darkGray: '#2d3748',
+            },
+            fontFamily: {
+              rampart: ['serif'],
+            },
+            width: {
+              container: '1200px',
+              90: '22.5rem',
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .search-container {
+        display: flex;
+        align-items: center;
+        border-radius: 8px;
+        padding: 8px 12px;
+        position: relative;
+      }
+
+      .search-icon {
+        width: 20px;
+        height: 20px;
+        color: #9ca3af;
+        margin-right: 8px;
+      }
+
+      .search-input {
+        background: transparent;
+        border: none;
+        outline: none;
+        color: white;
+        flex: 1;
+      }
+
+      .search-input::placeholder {
+        color: #9ca3af;
+      }
+
+      .search-type-select {
+        background: #374151;
+        color: white;
+        border: none;
+        outline: none;
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-size: 12px;
+        margin-left: 8px;
+      }
+
+      .navbar-menu-list {
+        display: flex;
+        list-style: none;
+        gap: 2rem;
+        margin: 0;
+        padding: 0;
+      }
+
+      .navbar-menu-item {
+        position: relative;
+      }
+
+      .navbar-menu-link {
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        padding: 8px 12px;
+        border-radius: 4px;
+        transition: background-color 0.3s;
+      }
+
+      .navbar-menu-link:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+
+      .dropdown {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s;
+        z-index: 50;
+        min-width: 200px;
+      }
+
+      .menu-item:hover .dropdown {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .dropdown ul {
+        list-style: none;
+        margin: 0;
+        padding: 8px 0;
+      }
+
+      .dropdown-item a {
+        display: block;
+        padding: 8px 16px;
+        color: #374151;
+        text-decoration: none;
+        transition: background-color 0.3s;
+      }
+
+      .dropdown-item a:hover {
+        background-color: #f3f4f6;
+      }
+
+      /* Mobile Search Overlay */
+      .search-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background: #ff6b6b;
+        z-index: 100;
+        transform: translateY(-100%);
+        transition: transform 0.3s ease-in-out;
+        padding: 1rem;
+      }
+
+      .search-overlay.active {
+        transform: translateY(0);
+      }
+
+      .search-overlay-container {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .close-search {
+        color: white;
+        cursor: pointer;
+        width: 24px;
+        height: 24px;
+      }
+
+      .mobile-search-container {
+        flex: 1;
+        background: #2d3748;
+        border-radius: 8px;
+        padding: 8px 12px;
+        display: flex;
+        align-items: center;
+      }
+
+      .mobile-search-input {
+        background: transparent;
+        border: none;
+        outline: none;
+        color: white;
+        flex: 1;
+        font-size: 16px;
+      }
+
+      .mobile-search-input::placeholder {
+        color: #9ca3af;
+      }
+
+      /* Hamburger animation */
+      .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+
+      .hamburger.active span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100">
+    <!-- Mobile Search Overlay -->
+    <div id="searchOverlay" class="search-overlay">
+      <div class="search-overlay-container">
+        <svg
+          class="close-search"
+          id="closeSearch"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+        <div class="mobile-search-container">
+          <svg
+            class="search-icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="3"
+          >
+            <circle cx="11" cy="11" r="8"></circle>
+            <path d="m21 21-4.35-4.35"></path>
+          </svg>
+          <input
+            type="text"
+            class="mobile-search-input"
+            placeholder="Search movies and TV shows..."
+            autofocus
+          />
+          <select class="search-type-select" aria-label="Search type">
+            <option value="movie">Movies</option>
+            <option value="tv">TV Shows</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <nav class="container mx-auto mb-0 py-2 px-4 bg-lightRed lg:w-container">
+      <!-- Flex Container for navigation items -->
+      <div class="flex items-center justify-between my-3 gap-x-2">
+        <!-- Logo -->
+        <div>
+          <!-- Site Name / Logo -->
+          <p
+            class="text-white font-bold text-xs font-rampart w-20 sm:w-full sm:text-xl md:text-2xl cursor-pointer"
+          >
+            movieCritic
+          </p>
+        </div>
+
+        <!-- Search Box - Hidden on mobile, visible on larger screens -->
+        <div
+          class="search-container bg-darkGray w-full md:w-72 lg:w-90 hidden sm:flex"
+        >
+          <svg
+            class="search-icon cursor-pointer"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="3"
+          >
+            <circle cx="11" cy="11" r="8"></circle>
+            <path d="m21 21-4.35-4.35"></path>
+          </svg>
+          <input
+            type="text"
+            class="search-input w-full text-xs sm:text-base"
+            placeholder="Search ..."
+          />
+          <select class="search-type-select" aria-label="Search type">
+            <option value="movie">Movies</option>
+            <option value="tv">TV Shows</option>
+          </select>
+        </div>
+
+        <!-- Mobile Search Icon - Only visible on mobile -->
+        <div class="sm:hidden">
+          <svg
+            id="mobileSearchBtn"
+            class="search-icon cursor-pointer text-white w-6 h-6"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <circle cx="11" cy="11" r="8"></circle>
+            <path d="m21 21-4.35-4.35"></path>
+          </svg>
+        </div>
+
+        <!-- Hamburger -->
+        <button
+          id="menu-btn"
+          class="hamburger lg:hidden relative z-50 w-8 h-8 flex flex-col justify-center items-center gap-y-1 p-2 bg-white rounded-lg cursor-pointer transition-all duration-300"
+        >
+          <span
+            class="block h-1 w-4 bg-black transition-transform origin-center"
+          ></span>
+          <span class="block h-1 w-4 bg-black transition-opacity"></span>
+          <span
+            class="block h-1 w-4 bg-black transition-transform origin-center"
+          ></span>
+        </button>
+
+        <!-- Nav Menu Items -->
+        <div class="nav-menu hidden lg:block">
+          <ul class="navbar-menu-list">
+            <li class="navbar-menu-item">
+              <a href="#" class="navbar-menu-link">Movies</a>
+            </li>
+            <li class="navbar-menu-item">
+              <a href="#" class="navbar-menu-link">TV Shows</a>
+            </li>
+            <li class="navbar-menu-item">
+              <a href="#" class="navbar-menu-link">Watchlist</a>
+            </li>
+            <li class="navbar-menu-item menu-item">
+              <a href="#" class="navbar-menu-link">More</a>
+              <div class="dropdown">
+                <ul>
+                  <li class="dropdown-item"><a href="">Popular Movies</a></li>
+                  <li class="dropdown-item"><a href="">Popular Shows</a></li>
+                  <li class="dropdown-item">
+                    <a href="">Trending This Week ♨️</a>
+                  </li>
+                  <li class="dropdown-item">
+                    <a href="">Trending Today 🔥</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Demo content to show the overlay effect -->
+    <div class="container mx-auto px-4 py-8">
+      <h1 class="text-2xl font-bold mb-4">Demo Content</h1>
+      <p class="text-gray-600 mb-4">
+        This is demo content to show how the search overlay works on mobile
+        devices.
+      </p>
+      <p class="text-gray-600 mb-4">
+        Try resizing your browser window to less than 640px width to see the
+        mobile search functionality.
+      </p>
+      <p class="text-gray-600">
+        On mobile, click the search icon to open the search overlay, and click
+        the X to close it.
+      </p>
+    </div>
+
+    <script>
+      // Mobile search functionality
+      const mobileSearchBtn = document.getElementById('mobileSearchBtn');
+      const searchOverlay = document.getElementById('searchOverlay');
+      const closeSearch = document.getElementById('closeSearch');
+      const hamburger = document.getElementById('menu-btn');
+
+      // Open mobile search overlay
+      mobileSearchBtn.addEventListener('click', () => {
+        searchOverlay.classList.add('active');
+      });
+
+      // Close mobile search overlay
+      closeSearch.addEventListener('click', () => {
+        searchOverlay.classList.remove('active');
+      });
+
+      // Close overlay when clicking outside or pressing escape
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          searchOverlay.classList.remove('active');
+        }
+      });
+
+      // Hamburger menu animation
+      hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+      });
+
+      // Prevent body scroll when overlay is open
+      const observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+          if (
+            mutation.type === 'attributes' &&
+            mutation.attributeName === 'class'
+          ) {
+            if (searchOverlay.classList.contains('active')) {
+              document.body.style.overflow = 'hidden';
+            } else {
+              document.body.style.overflow = '';
+            }
+          }
+        });
+      });
+
+      observer.observe(searchOverlay, { attributes: true });
+    </script>
+  </body>
+</html>
