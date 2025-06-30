@@ -35,50 +35,118 @@
   <body
     class="sm:bg-lightGray bg-white m-0 p-0 font-montserrat overflow-x-hidden"
   >
+    <!-- Search Overlay -->
+    <div id="searchOverlay" class="search-overlay">
+      <div class="search-overlay-container bg-lightRed p-3 w-full">
+        <!-- Search container for mobile -->
+        <!-- Search Box -->
+        <div class="mobile-search-container bg-darkGray w-full flex">
+          <div class="">
+            <svg
+              class="search-icon cursor-pointer"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="3"
+            >
+              <circle cx="11" cy="11" r="8"></circle>
+              <path d="m21 21-4.35-4.35"></path>
+            </svg>
+          </div>
+          <input
+            type="text"
+            class="search-input w-full text-base"
+            placeholder="Search movie/tv shows..."
+          />
+          <select class="search-type-select" aria-label="Search type">
+            <option value="movie">Movies</option>
+            <option value="tv">TV Shows</option>
+          </select>
+        </div>
+
+        <!-- Close button -->
+        <svg
+          class="close-search"
+          id="closeSearch"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </div>
+    </div>
+    <!-- Navigation -->
     <nav class="container mx-auto mb-0 py-2 px-4 bg-lightRed lg:w-container">
       <!-- Flex Container for navigation items -->
-      <div class="flex items-center justify-between my-3 gap-x-4">
+      <div class="flex items-center justify-between my-3 gap-x-5">
         <!-- Logo -->
         <div>
           <!-- Site Name / Logo -->
-          <p
-            class="text-white font-bold text-lg font-rampart sm:text-xl md:text-2xl cursor-pointer"
+          <h2
+            class="text-white font-bold text-xl sm:text-2xl font-rampart w-20 sm:w-full cursor-pointer"
           >
             movieCritic
-          </p>
-        </div>
-        <!-- Search Box -->
-        <div class="search-container bg-darkGray w-full md:w-72 lg:w-80">
-          <svg
-            class="search-icon cursor-pointer"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="3"
-          >
-            <circle cx="11" cy="11" r="8"></circle>
-            <path d="m21 21-4.35-4.35"></path>
-          </svg>
-          <input
-            type="text"
-            class="search-input w-full"
-            placeholder="Search movie"
-          />
+          </h2>
         </div>
 
-        <!-- Hamburger -->
-        <buttons
-          id="menu-btn"
-          class="lg:hidden relative z-50 w-8 h-8 flex flex-col justify-center items-center gap-y-1 p-2 bg-white rounded-lg cursor-pointer transition-all duration-300"
-        >
-          <span
-            class="block h-1 w-4 bg-black transition-transform origin-center"
-          ></span>
-          <span class="block h-1 w-4 bg-black transition-opacity"></span>
-          <span
-            class="block h-1 w-4 bg-black transition-transform origin-center"
-          ></span>
-        </buttons>
+        <!-- Search Box -->
+        <div class="search-container bg-darkGray w-full lg:w-90 hidden sm:flex">
+          <div class="">
+            <svg
+              class="search-icon cursor-pointer"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="3"
+            >
+              <circle cx="11" cy="11" r="8"></circle>
+              <path d="m21 21-4.35-4.35"></path>
+            </svg>
+          </div>
+          <input
+            type="text"
+            class="search-input w-full text-xs sm:text-base"
+            placeholder="Search movie/tv shows..."
+          />
+          <select class="search-type-select" aria-label="Search type">
+            <option value="movie">Movies</option>
+            <option value="tv">TV Shows</option>
+          </select>
+        </div>
+
+        <!-- Hamburger and Search Icon-->
+        <div class="flex items-center gap-x-2.5">
+          <!-- Search Icon for Mobile -->
+          <div class="sm:hidden">
+            <svg
+              class="search-icon cursor-pointer"
+              id="mobileSearchBtn"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="3"
+            >
+              <circle cx="11" cy="11" r="8"></circle>
+              <path d="m21 21-4.35-4.35"></path>
+            </svg>
+          </div>
+          <!-- Hamburger -->
+          <button
+            id="menu-btn"
+            class="lg:hidden relative z-50 w-8 h-8 flex flex-col justify-center items-center gap-y-1 p-2 bg-white rounded-lg cursor-pointer transition-all duration-300"
+          >
+            <span
+              class="block h-1 w-4 bg-black transition-transform origin-center"
+            ></span>
+            <span class="block h-1 w-4 bg-black transition-opacity"></span>
+            <span
+              class="block h-1 w-4 bg-black transition-transform origin-center"
+            ></span>
+          </button>
+        </div>
 
         <!-- Nav Menu Items -->
         <div class="nav-menu hidden lg:block">
@@ -111,6 +179,7 @@
         </div>
       </div>
     </nav>
+    <!-- Main  -->
     <main
       class="container mx-auto bg-white md:px-4 lg:w-container font-poppins"
     >
